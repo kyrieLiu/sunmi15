@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemConfirmCheckOutBinding">
+
+        <import type="android.view.View" />
+        <import type="java.util.List" />
+        <import type="ys.app.pad.utils.AppUtil" />
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.ConfirmCheckOutItemViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:id="@+id/confirm_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:clipChildren="true"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/huiyuankalanbeijing">
+
+                    <RelativeLayout
+                        android:id="@+id/up_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/name_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@{itemViewModel.model.name}"
+                            android:textColor="@android:color/white"
+                            tools:text="会员姓名" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/name_tv"
+                            android:text="@{itemViewModel.model.phone}"
+                            android:textColor="@android:color/white"
+                            tools:text="18239900654" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/padding_or_margin"
+                        android:layout_marginRight="@dimen/padding_or_margin"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{itemViewModel.obAnimal1Name}"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                tools:text="@string/app_name" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@{itemViewModel.obAnimal2Name}"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                tools:text="@string/app_name" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{itemViewModel.obAnimal3Name}"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                tools:text="@string/app_name" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@{itemViewModel.obAnimal4Name}"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                tools:text="@string/app_name" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text='@{AppUtil.formatStandardMoney(itemViewModel.model.money)+@string/yuan}'
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            tools:text="@string/app_name"
+                            android:visibility="gone"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@mipmap/huiyuankatouming">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text='@{"NO:"+itemViewModel.model.cardNo}'
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"
+                            tools:text="NO:96512456611489" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:text="@{itemViewModel.model.typeName}"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/line_divide_normal" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/jiarugouwuche"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="11"
+                android:onClick="@{itemViewModel.clickPay}"
+                android:text="@{itemViewModel.type}"
+                android:textColor="@color/text_dark"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <View
+            android:layout_below="@+id/confirm_ll"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_dark" />
+    </RelativeLayout>
+
+</layout>

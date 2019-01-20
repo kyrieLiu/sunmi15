@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityAddGoodsBinding">
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.AddGoodsActivityViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view"
+            android:id="@+id/include" />
+
+        <Button
+            android:id="@+id/bt_commit"
+            android:onClick="@{viewModel.clickButton}"
+            style="@style/ButtonNormalCommit"
+            android:text="新增"
+            android:visibility="gone"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_add_goods_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/include"
+            android:layout_centerHorizontal="true"
+            android:focusable="true"
+            android:paddingLeft="@dimen/margin_200"
+            android:paddingRight="@dimen/margin_200"
+            android:focusableInTouchMode="false"
+            android:onClick="@{()->viewModel.hideSearch()}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_33"
+                    android:background="@drawable/shape_login_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/iv_tv_padding"
+                        android:src="@mipmap/lansesaomiao" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="条  形  码" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=": " />
+
+                    <EditText
+                        style="@style/TCNormalTS13"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入条形码(非必填)"
+                        android:inputType="number"
+                        android:maxLength="@integer/bar_code_limit"
+                        android:maxLines="1"
+                        android:text="@={viewModel.obGoodsCode}"
+                        app:onTextChangedListener="@{viewModel.barCodeWatcher}" />
+
+                    <ImageButton
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:background="@null"
+                        android:onClick="@{viewModel.clickScan}"
+                        android:src="@mipmap/saoyisaoheise" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_below="@+id/ll5"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_login_input">
+
+                        <ImageView
+                            android:id="@+id/iv0"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="@dimen/dp_11"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/iv_tv_padding"
+                            android:src="@mipmap/leixing" />
+
+                        <TextView
+                            android:id="@+id/tv0"
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv0"
+                            android:text="类        型" />
+
+                        <TextView
+                            android:id="@+id/tv1"
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tv0"
+                            android:text=": " />
+
+                        <ImageView
+                            android:id="@+id/select_iv0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:onClick="@{viewModel.clickSelectTypeButton}"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/arrow_down"
+                            android:visibility="@{viewModel.getTypeHttpSuccess?View.VISIBLE:View.GONE}" />
+
+                        <TextView
+                            style="@style/TCNormalTS13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/select_iv0"
+                            android:layout_toRightOf="@+id/tv1"
+                            android:background="@null"
+                            android:clickable="@{viewModel.getTypeHttpSuccess?true:false}"
+                            android:hint="请选择类型"
+                            android:onClick="@{viewModel.clickSelectTypeButton}"
+                            android:text="@={viewModel.obGoodsTypeName}"
+                            android:textColorHint="@color/text_hint" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="*"
+                        android:textColor="@color/text_money" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_below="@+id/ll5"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_19"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/shape_login_input">
+
+                        <ImageView
+                            android:id="@+id/iv"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="@dimen/dp_11"
+                            android:layout_alignBottom="@+id/tv"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:src="@mipmap/danwei" />
+
+                        <TextView
+                            android:id="@+id/tv"
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv"
+                            android:text="单         位" />
+
+                        <TextView
+                            android:id="@+id/tv2"
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tv"
+                            android:text=": " />
+
+                        <TextView
+                            android:id="@+id/select_iv"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:drawableRight="@mipmap/arrow_down"
+                            android:onClick="@{viewModel.clickSelectUnitButton}"
+                            android:visibility="@{viewModel.getUnitHttpSuccess?View.VISIBLE:View.GONE}" />
+
+                        <ys.app.pad.widget.ContainsEmojiEditText
+                            style="@style/TCNormalTS13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/select_iv"
+                            android:layout_toRightOf="@+id/tv2"
+                            android:background="@null"
+                            android:clickable="@{viewModel.getUnitHttpSuccess?true:false}"
+                            android:hint="请输入单位"
+                            android:text="@={viewModel.obGoodsUnitName}"
+                            android:textColorHint="@color/text_hint" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="*"
+                        android:textColor="@color/text_money" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv5"
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/iv_tv_padding"
+                        android:src="@mipmap/chengben" />
+
+                    <TextView
+                        android:id="@+id/tv5"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv5"
+                        android:text="成  本  价" />
+
+                    <TextView
+                        android:id="@+id/tv6"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv5"
+                        android:text=": " />
+
+                    <ys.app.pad.widget.LastInputEditText
+                        style="@style/TCNormalTS13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv6"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入成本价(非必填)"
+                        android:inputType="numberDecimal"
+                        android:maxLength="@integer/price_limit"
+                        android:text="@={viewModel.obGoodsCostPrice}"
+                        app:onTextChangedListener="@{viewModel.mChangedListener}" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="元" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_19"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_login_input">
+
+                        <ImageView
+                            android:id="@+id/iv8"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="@dimen/dp_11"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/iv_tv_padding"
+                            android:src="@mipmap/xiaoshoujia" />
+
+                        <TextView
+                            android:id="@+id/tv8"
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv8"
+                            android:text="销  售  价" />
+
+                        <TextView
+                            android:id="@+id/tv9"
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tv8"
+                            android:text=": " />
+
+                        <ys.app.pad.widget.LastInputEditText
+                            style="@style/TCNormalTS13"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/tv9"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入销售价"
+                            android:inputType="numberDecimal"
+                            android:maxLength="@integer/price_limit"
+                            android:text="@={viewModel.obGoodsRealPrice}"
+                            app:onTextChangedListener="@{viewModel.mTCredTSChangedListener}" />
+
+                        <TextView
+                            style="@style/TCNormalTS13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:text="元" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="@dimen/dp_5"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="*"
+                        android:textColor="@color/text_money" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_add_goods_vipPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/iv_tv_padding"
+                        android:src="@mipmap/chengben" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv5"
+                        android:text="会  员  价" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv5"
+                        android:text=": " />
+
+                    <ys.app.pad.widget.LastInputEditText
+                        style="@style/TCNormalTS13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv6"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入会员价(非必填)"
+                        android:inputType="numberDecimal"
+                        android:maxLength="@integer/price_limit"
+                        android:text="@={viewModel.obGoodsVipPrice}"
+                        app:onTextChangedListener="@{viewModel.mChangedListener}" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="元" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:background="@drawable/shape_login_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/iv_tv_padding"
+                        android:src="@mipmap/kucunshuliang" />
+
+                    <TextView
+                        style="@style/TCdarkTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="生产日期" />
+
+                    <TextView
+                        style="@style/TCdarkTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=": " />
+
+                    <ys.app.pad.widget.ContainsEmojiEditText
+                        style="@style/TCdarkTS13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:gravity="center_vertical"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:onClick="@{() -> viewModel.manufactureTimeClick()}"
+                        android:text="@={viewModel.obGoodsProductDate}" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_19"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv10"
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/iv_tv_padding"
+                        android:src="@mipmap/kucunshuliang" />
+
+                    <TextView
+                        android:id="@+id/tv10"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv10"
+                        android:text="有  效  期" />
+
+                    <TextView
+                        android:id="@+id/tv11"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv10"
+                        android:text=": " />
+
+                    <ys.app.pad.widget.ContainsEmojiEditText
+                        android:id="@+id/editText"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/tv11"
+                        android:background="@null"
+                        android:hint="请输入有效期(非必填)"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:text="@={viewModel.obGoodsOutOfDate}" />
+                    <!--android:onClick="@{() -> viewModel.expiryDateClick()}"-->
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="月" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="上传商品图片"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:onClick="@{() -> viewModel.uploadClick()}"
+                    android:src="@mipmap/upload_img"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_addGoods_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_19"
+                android:layout_marginTop="@dimen/dp_5"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_login_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/iv_tv_padding"
+                        android:src="@mipmap/shangpinmingcheng" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="商品名称" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=": " />
+
+                    <EditText
+                        android:id="@+id/et_add_good_name"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:hint="请输入商品名称"
+                        android:text="@={viewModel.obGoodsName}"
+                        app:onTextChangedListener="@{viewModel.goodNameListener}" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/text_money" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_add_goods_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_addGoods_name"
+                android:layout_marginBottom="100dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="100dp"
+                android:background="@android:color/transparent"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.showSearch?View.VISIBLE:View.GONE}">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_add_good_search_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/devide"
+                    android:divider="#00000000"></android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,84 @@
+ext {
+    //Version
+    designVersion = '24.1.1'
+    supportVersion = '24.1.1'
+    recyclerviewVersion = '+'
+    fastJsonVersion = '1.1.33.android'
+    okhttpVersion = '3.4.1'
+    okioVersion = '1.6.0'
+    retrofitVersion = '2.0.2'
+    rxAndroidVersion = '1.2.1'
+    butterknifeVersion = '7.0.0'
+    glideVersion = '3.7.0'
+    dbflowVersion = '4.0.0-beta5'
+    greendaoVersion = '3.1.0'
+    bottomsheetVersion = '1.5.1'
+
+
+    //Packages
+    supportPackage = 'com.android.support'
+    recyclerviewPackage = 'com.bignerdranch.android'
+    fastJsonPackage = 'com.alibaba'
+    okhttpPackage = 'com.squareup.okhttp3'
+    okioPackage = 'com.squareup.okio'
+    retrofitPackage = 'com.squareup.retrofit2'
+    reactivePackage = 'io.reactivex'
+    dbflowPackage = 'com.github.Raizlabs.DBFlow'
+
+    jakeWhartonPackage = 'com.jakewharton'
+    glidePackage = 'com.github.bumptech.glide'
+    hdodenhofPackage = 'de.hdodenhof'
+    greendaoPackage = 'org.greenrobot'
+    bottomsheetPackage = 'com.flipboard'
+
+
+    supportDependencies = [
+            supportV7    : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            design       : buildDependency(supportPackage, 'design', designVersion),
+            recyclerview : buildDependency(recyclerviewPackage, 'recyclerview-multiselect', recyclerviewVersion)
+    ]
+
+    retrofitDependencies = [
+            fastjson     : buildDependency(fastJsonPackage, 'fastjson', fastJsonVersion),
+            okio         : buildDependency(okioPackage, 'okio', okioVersion),
+            retrofit     : buildDependency(retrofitPackage, 'retrofit', retrofitVersion),
+            gson         : buildDependency(retrofitPackage, 'converter-gson', retrofitVersion),
+            simpleXml    : buildDependency(retrofitPackage, 'converter-simplexml', retrofitVersion),
+            scalars      : buildDependency(retrofitPackage, 'converter-scalars', retrofitVersion),
+            wire         : buildDependency(retrofitPackage, 'converter-wire', retrofitVersion),
+            moshi        : buildDependency(retrofitPackage, 'converter-moshi', retrofitVersion),
+            protobuf     : buildDependency(retrofitPackage, 'converter-protobuf', retrofitVersion),
+            rxAdapterJava: buildDependency(retrofitPackage, 'adapter-rxjava', retrofitVersion),
+            okhttp       : buildDependency(okhttpPackage, 'okhttp', okhttpVersion),
+            loging       : buildDependency(okhttpPackage, 'logging-interceptor', okhttpVersion)
+
+    ]
+
+    rxDependencies = [rxAndroid: buildDependency(reactivePackage, 'rxandroid', rxAndroidVersion),
+                      rxJava   : buildDependency(reactivePackage, 'rxjava', rxAndroidVersion)
+    ]
+
+    dbflowDependencies = [
+            processor : buildDependency(dbflowPackage, 'dbflow-processor', dbflowVersion),
+            core      : buildDependency(dbflowPackage, 'dbflow-core', dbflowVersion),
+            dbflow    : buildDependency(dbflowPackage, 'dbflow', dbflowVersion),
+            sqlcipher : buildDependency(dbflowPackage, 'dbflow-sqlcipher', dbflowVersion),
+            kotlinextensions : buildDependency(dbflowPackage, 'dbflow-kotlinextensions', dbflowVersion)
+    ]
+
+    butterknife = buildDependency(jakeWhartonPackage, 'butterknife', butterknifeVersion)
+    glide = buildDependency(glidePackage, 'glide', glideVersion)
+    greendao = buildDependency(greendaoPackage, 'greendao', greendaoVersion)
+
+    bottomsheet = buildDependency(bottomsheetPackage,'bottomsheet-core',bottomsheetVersion)
+
+    greendaoDependencies = [
+            greendao   : buildDependency(greendaoPackage, 'greendao', greendaoVersion),
+            generator  : buildDependency(greendaoPackage, 'greendao-generator', greendaoVersion),
+    ]
+
+}
+
+String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}

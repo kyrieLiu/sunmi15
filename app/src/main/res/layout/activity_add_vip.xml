@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityAddVipBinding">
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.vip.AddVipViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_28"
+            android:layout_below="@+id/view"
+            layout="@layout/tool_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginLeft="@dimen/dp_165"
+            android:layout_marginRight="@dimen/dp_165"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_3"
+                    android:drawableLeft="@mipmap/huiyuanxingming"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp_6_5"
+                    android:text="会员姓名 :" />
+
+                <EditText
+                    android:id="@+id/name_et"
+                    style="@style/TCBlackTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:background="@null"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:gravity="right|center"
+                    android:hint="请输入会员姓名"
+                    android:textSize="@dimen/sp_6_5"
+                    android:text="@={viewModel.obVipName}"
+                    app:onTextChangedListener="@{viewModel.textChangeListener}"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/huiyuanka"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    android:textSize="@dimen/sp_6_5"
+                    android:gravity="center_vertical"
+                    android:text="会员电话 :" />
+
+                <EditText
+                    android:id="@+id/tel_et"
+                    style="@style/TCBlackTS13"
+                    android:layout_width="0dp"
+                    android:maxLines="1"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:gravity="right|center"
+                    android:inputType="phone"
+                    android:textSize="@dimen/sp_6_5"
+                    android:hint="请输入会员电话"
+                    android:text="@={viewModel.obVipTel}"
+                    app:onTextChangedListener="@{viewModel.textChangeListener}"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginTop="@dimen/dp_5"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:background="@drawable/shape_login_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:drawableLeft="@mipmap/huiyuanka"
+                        android:drawablePadding="@dimen/dp_2.5"
+                        android:textSize="@dimen/sp_6_5"
+                        android:gravity="center_vertical"
+                        android:text="会员卡号 :" />
+
+                    <EditText
+                        android:id="@+id/card_no_et"
+                        style="@style/TCBlackTS13"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:gravity="right|center"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textSize="@dimen/sp_6_5"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:hint="请输入会员卡号"
+                        android:text="@={viewModel.obVipCardNo}"
+                        app:onTextChangedListener="@{viewModel.textChangeListener}" />
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/iv_dialog_search_card"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="center"
+                    android:src="@mipmap/huiyuanka"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:visibility="gone"
+                    android:onClick="@{()->viewModel.searchCardNo()}"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/add_vip_card_type"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_login_input"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv3"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/huiyuanka"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    android:textSize="@dimen/sp_6_5"
+                    android:gravity="center_vertical"
+                    android:text="卡片类型 :" />
+
+                <ImageView
+                    android:id="@+id/select_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:onClick="@{viewModel.clickSelectButton}"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/arrow_down" />
+
+                <EditText
+                    android:id="@+id/vip_type_tv"
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_toLeftOf="@+id/select_iv"
+                    android:layout_toRightOf="@+id/tv3"
+                    android:background="@null"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:gravity="right|center"
+                    android:textSize="@dimen/sp_6_5"
+                    android:editable="false"
+                    android:maxLines="1"
+                    android:focusable="false"
+                    android:hint="请选择卡片类型"
+                    android:onClick="@{viewModel.clickSelectButton}"
+                    android:text="@={viewModel.obVipTypeName}"
+                    app:onTextChangedListener="@{viewModel.textChangeListener}"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_add_vip_select"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_5"
+                android:visibility="gone"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TCNormalTS13"
+                    android:text="是否选择生日折扣: "
+                    android:textSize="@dimen/sp_6_5"
+                    />
+
+            <RadioGroup
+                android:id="@+id/rg_add_vip_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_5"
+                android:gravity="right|center"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/dp_11"
+                >
+                <RadioButton
+                    android:id="@+id/rb_add_vip_select_birthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TCNormalTS13"
+                    android:text="是"
+                    android:textSize="@dimen/sp_6_5"
+                    />
+                <RadioButton
+                    android:id="@+id/rb_add_vip_not_select_birthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_11"
+                    style="@style/TCNormalTS13"
+                    android:text="否"
+                    android:textSize="@dimen/sp_6_5"
+                    android:checked="true"
+                    />
+            </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_add_vip_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCdarkTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/huiyuanka"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    android:textSize="@dimen/sp_6_5"
+                    android:gravity="center_vertical"
+                    android:text="生日折扣 :" />
+
+                <TextView
+                    android:id="@+id/add_vip_birthday_name"
+                    style="@style/TCdarkTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp_6_5"
+                    android:onClick="@{()->viewModel.showCardList()}"
+                    android:hint="点击选择宠物生日折扣卡(选填)"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_add_vip_employee"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_login_input"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCdarkTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/huiyuanka"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp_6_5"
+                    android:text="选择员工 :" />
+
+
+
+                <TextView
+                    style="@style/TCdarkTS13"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:hint="请选择员工"
+                    android:textSize="@dimen/sp_6_5"
+                    android:onClick="@{viewModel.selectEmployee}"
+                    android:text="@{viewModel.employeeName}"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:onClick="@{viewModel.selectEmployee}"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/arrow_down" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_22"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_blue_btn_bg"
+            android:enabled="@{viewModel.obButtonEnable}"
+            android:onClick="@{viewModel.clickButton}"
+            android:text="新增会员"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_7_5" />
+    </RelativeLayout>
+</layout>

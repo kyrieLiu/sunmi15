@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityChargeBinding">
+        <import type="android.view.View"></import>
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.ChargeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white"
+            />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view"
+            layout="@layout/tool_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginLeft="@dimen/margin_200"
+            android:layout_marginRight="@dimen/margin_200"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_login_input"
+                android:layout_marginTop="@dimen/dp_5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_22"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TCLightTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:drawablePadding="3dp"
+                        android:text="会员姓名 :"
+                        android:textSize="@dimen/sp_6_5"/>
+
+                    <TextView
+                        android:id="@+id/name_tv"
+                        android:textSize="@dimen/sp_6_5"
+                        android:textColor="@color/text_light"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right|center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:text="@{viewModel.vipName}"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TCLightTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:drawablePadding="3dp"
+                        android:text="会员电话 :"
+                        android:textSize="@dimen/sp_6_5" />
+
+                    <TextView
+                        android:id="@+id/phone_tv"
+                        android:textSize="@dimen/sp_6_5"
+                        android:textColor="@color/text_light"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right|center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:text="@{viewModel.vipPhone}"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:drawableLeft="@mipmap/chongzhijine"
+                    android:drawablePadding="3dp"
+                    android:gravity="center_vertical"
+                    android:text="充值金额 :"
+                    android:textSize="@dimen/sp_6_5"/>
+
+                <ys.app.pad.widget.LastInputEditText
+                    android:id="@+id/money_et"
+                    style="@style/TCBlueTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:maxLines="1"
+                    android:gravity="right|center"
+                    android:hint="请输入充值金额"
+                    android:textSize="@dimen/sp_6_5"
+                    android:inputType="numberDecimal"
+                    android:text="@={viewModel.money}"
+                    android:textColorHint="@color/text_hint"
+                    app:onTextChangedListener="@{viewModel.textChangeListener}" />
+
+                <TextView
+                    style="@style/TCBlueTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="元"
+                    android:textSize="@dimen/sp_6_5" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:visibility="@{viewModel.vipType==0?View.VISIBLE:View.GONE}"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:drawableLeft="@mipmap/chongzhijine"
+                    android:drawablePadding="3dp"
+                    android:gravity="center_vertical"
+                    android:text="赠送金额 :"
+                    android:textSize="@dimen/sp_6_5" />
+
+                <ys.app.pad.widget.LastInputEditText
+                    style="@style/TCBlueTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:maxLines="1"
+                    android:gravity="right|center"
+                    android:hint="请输入赠送金额(选填)"
+                    android:textSize="@dimen/sp_6_5"
+                    android:inputType="numberDecimal"
+                    android:text="@={viewModel.presentMoney}"
+                    android:textColorHint="@color/text_hint"
+                    />
+
+                <TextView
+                    style="@style/TCBlueTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="元"
+                    android:textSize="@dimen/sp_6_5"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/select_employee_ll"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:drawableLeft="@mipmap/huiyuanka"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:text="销售人员 :"
+                    android:textSize="@dimen/sp_6_5"/>
+
+                <EditText
+                    style="@style/TCNormalTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:maxLines="1"
+                    android:hint="请选择员工"
+                    android:textSize="@dimen/sp_6_5"
+                    android:onClick="@{() -> viewModel.selectEmployeeClick()}"
+                    android:text="@={viewModel.selectEmployee}"
+                    android:textColorHint="@color/text_hint"
+                    app:onTextChangedListener="@{viewModel.textChangeListener}" />
+
+            </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/ok_btn"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="@dimen/button_height"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:layout_margin="15dp"-->
+                <!--android:background="@drawable/selector_blue_btn_bg"-->
+                <!--android:textSize="@dimen/text_button_size"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:enabled="@{viewModel.obButtonEnable}"-->
+                <!--android:onClick="@{viewModel.clickButton}"-->
+                <!--android:text="充值" />-->
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok_btn"
+            style="@style/ButtonNormalAlignBottomEnableFull"
+            android:enabled="@{viewModel.obButtonEnable}"
+            android:onClick="@{viewModel.clickButton}"
+            android:text="充值" />
+    </RelativeLayout>
+</layout>

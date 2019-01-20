@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="lyy.pet.boss.activity.AchievementStatisticActivity">
+
+    <data class="AchievementStatisticBinding">
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.AchievementStatisticViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/tool_content_bar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/bg"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/back_iv"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/selector_press_back_grey" />
+
+            <LinearLayout
+                android:id="@+id/title_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/commodity_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/selector_title_left"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="@{viewModel.clickCommodity}"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:text="商品"
+                    android:textColor="@drawable/selector_title_text"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/service_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_title_right"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="@{viewModel.clickService}"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:text="服务"
+                    android:textColor="@drawable/selector_title_text"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</layout>

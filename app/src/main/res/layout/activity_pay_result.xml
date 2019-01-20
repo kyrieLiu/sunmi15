@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityPayResultBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.vip.PayResultViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white"
+            />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view"
+            layout="@layout/tool_bar" />
+
+        <RelativeLayout
+            android:id="@+id/success_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tool_bar"
+            android:visibility="@{viewModel.obIsPaySuccess?View.VISIBLE:View.GONE}">
+
+            <LinearLayout
+                android:id="@+id/up_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="18sp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+                    <!--app:imgSrc="@{viewModel.obSelectPayResultImg}"-->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/chongzhichenggong" />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/blue"
+                    android:text="恭喜您，充值成功!" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/up_ll"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_login_input">
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="3dp"
+                        android:drawableLeft="@mipmap/chongzhijine"
+                        android:text="充值金额" />
+                    <TextView
+                        android:id="@+id/rmb0"
+                        style="@style/TCBlueTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="元" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/rmb0"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.obSelectPayMoney}"
+                        style="@style/TCBlueTS13" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:visibility="@{viewModel.seePresenterMoney?View.VISIBLE:View.GONE}"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_login_input">
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="3dp"
+                        android:drawableLeft="@mipmap/chongzhijine"
+                        android:text="赠送金额" />
+
+                    <TextView
+                        android:id="@+id/rmb"
+                        style="@style/TCBlueTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="元" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/rmb"
+                        android:text="@{viewModel.presenterMoney}"
+                        style="@style/TCBlueTS13" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/line_divide_normal" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_login_input">
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:drawablePadding="3dp"
+                        android:drawableLeft="@mipmap/yuangongxingming"
+                        android:text="支付方式" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.obSelectPayType}" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_login_input">
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="3dp"
+                        android:drawableLeft="@mipmap/chongwuzhonglei"
+                        android:text="交易单号" />
+
+                    <TextView
+                        style="@style/TCNormalTS13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.obSelectOrderNo}" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fail_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:background="@color/bg"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.obIsPaySuccess?View.GONE:View.VISIBLE}">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawablePadding="15dp"
+                    android:drawableTop="@mipmap/zhifushibai"
+                    android:text="非常抱歉, 充值未完成"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/line_h_normal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="15dp"
+                android:paddingLeft="@dimen/padding_or_margin"
+                android:paddingRight="@dimen/padding_or_margin"
+                android:paddingTop="15dp"
+                android:text="@string/payFail" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="失败可能原因"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="1: 网络信号不好"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="2: 接口处理异常"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="(建议您稍后再进行尝试)"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/ThemePressLeftBg"
+                android:onClick="@{viewModel.onClickPrintReceipt}"
+                android:text='@{viewModel.obIsPaySuccess?@string/bdxp:@string/qx}'
+                tools:text="补打小票" />
+
+            <Button
+                style="@style/ThemePressRightBg"
+                android:onClick="@{viewModel.onClickButton}"
+                android:text='@{viewModel.obIsPaySuccess?@string/qd:@string/cxcz}'
+                tools:text="确定" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/networkErrorIv"
+            style="@style/NetworkErrorIv"
+            android:layout_below="@id/tool_bar"
+            android:onClick="@{viewModel.onClickNetWorkError}"
+            android:src="@mipmap/network_error"
+            android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}"
+            tools:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tool_bar"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/bg"
+            android:visibility="@{viewModel.isLoadingVisible?View.VISIBLE:View.GONE}"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/yyp" />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/RequestProgressStyle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_below="@+id/tool_bar"-->
+            <!--android:background="@color/bg"-->
+            <!--android:gravity="center"-->
+            <!--android:text="获取订单出错"-->
+            <!--android:textColor="#8a8a8a"-->
+            <!--android:visibility="@{viewModel.isOrderErrorVisible?View.VISIBLE:View.GONE}"-->
+            <!--tools:visibility="gone" />-->
+
+    </RelativeLayout>
+</layout>

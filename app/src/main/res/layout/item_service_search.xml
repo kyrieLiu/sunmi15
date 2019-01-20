@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemServiceSearchBinding">
+
+        <import type="android.view.View"/>
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.ServiceSearchItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:clipChildren="true"
+                android:orientation="vertical">
+
+                <ys.app.pad.widget.RotateTextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_horizontal"
+                    android:text="@{itemViewModel.model.promotionType==2?@string/lijian:itemViewModel.model.promotionNum+@string/zhe}"
+                    android:textColor="#0e932e"
+                    android:textSize="10sp"
+                    android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}" />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/xiexian"
+                    android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}" />
+
+                <LinearLayout
+                    android:id="@+id/ll1"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLength="8"
+                        android:text="@{itemViewModel.model.name}"
+                        android:textColor="@color/text_dark"
+                        android:textSize="12sp"
+                        tools:text="商品名称商品名称商品名称商品名称商品名称商品名称商品名称" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text='@{@string/zkh+itemViewModel.model.typeName+@string/ykh}'
+                        android:textColor="@color/text_dark"
+                        android:textSize="10sp"
+                        tools:text="(活体)" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/danwei"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:text="¥"
+                        android:textColor="@color/text_money"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/jine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/danwei"
+                        android:layout_marginLeft="2dp"
+                        android:layout_toRightOf="@+id/danwei"
+                        android:text="@{itemViewModel.model.isPromotion==1?itemViewModel.costPrice:itemViewModel.price}"
+                        android:textColor="@color/text_money"
+                        android:textSize="16sp"
+                        tools:text="30.0" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/danwei"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/jine"
+                        android:background="@drawable/shape_line_light"
+                        android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:text='@{@string/rmb+itemViewModel.price}'
+                            android:textColor="@color/text_light"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/line_divide_normal" />
+
+            <TextView
+                android:onClick="@{itemViewModel.clickAddShoppingButton}"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/jiarugouwuche"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="11"
+                android:text="加入购物車"
+                android:textColor="@color/text_dark"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line_dark" />
+    </RelativeLayout>
+
+</layout>

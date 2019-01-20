@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="DialogCustomerTypeBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.CustomerTypeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_dialog_bg">
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tabLayout"
+                    style="@style/CustomTabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="8dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/not_vip_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.obPosition==1?View.VISIBLE:View.GONE}"
+                        tools:visibility="gone"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/shape_login_input"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TCdarkTS13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:gravity="center_vertical"
+                                android:text="顾客姓名 :" />
+
+                            <EditText
+                                android:id="@+id/name_et"
+                                style="@style/TCdarkTS13"
+                                android:maxLines="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="请输入顾客名称"
+                                android:gravity="center_vertical"
+                                android:text="@={viewModel.mName}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/shape_login_input"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TCdarkTS13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:gravity="center_vertical"
+                                android:text="顾客手机 :" />
+
+                            <EditText
+                                android:id="@+id/phone_et"
+                                style="@style/TCdarkTS13"
+                                android:layout_width="0dp"
+                                android:maxLines="1"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="请输入手机号码"
+                                android:gravity="center_vertical"
+                                android:text="@={viewModel.mPhone}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/shape_login_input"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TCdarkTS13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:gravity="center_vertical"
+                                android:text="宠物名称 :" />
+
+                            <EditText
+                                android:id="@+id/animal_et"
+                                style="@style/TCdarkTS13"
+                                android:maxLines="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:text="@={viewModel.mAnimalName}" />
+                        </LinearLayout>
+                        <include layout="@layout/line_h_normal" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+
+
+                            <LinearLayout
+                                android:id="@+id/down_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <TextView
+                                        android:id="@+id/cancel_tv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:onClick="@{viewModel.clickJump}"
+                                        android:text="跳过"
+                                        android:textColor="#666666"
+                                        android:textSize="14sp" />
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="1px"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_divide_normal" />
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <TextView
+                                        android:id="@+id/ok_tv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:onClick="@{viewModel.clickButton}"
+                                        android:text="确定"
+                                        android:textColor="@color/color_main"
+                                        android:textSize="14sp" />
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vip_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.obPosition==0?View.VISIBLE:View.GONE}"
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+
+                            <EditText
+                                android:id="@+id/vip_phone_et"
+                                style="@style/TCdarkTS13"
+                                android:maxLines="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/shape_login_input"
+                                android:hint="会员手机号/名字"
+                                android:paddingLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="@={viewModel.mVipPhone}" />
+
+                            <ImageView
+                                android:id="@+id/iv_dialog_search_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:scaleType="center"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@mipmap/huiyuanka"
+                                android:onClick="@{()->viewModel.searchCardNo()}"
+                                />
+
+                        </LinearLayout>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rl_dialog_collect_vip"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/shape_login_input"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            >
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                style="@style/TCdarkTS13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:gravity="center_vertical"
+                                android:text="会员卡号 :" />
+
+                            <EditText
+                                android:id="@+id/vip_card_et"
+                                style="@style/TCdarkTS13"
+                                android:layout_width="0dp"
+                                android:maxLines="1"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:text="@={viewModel.mVipCard}" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

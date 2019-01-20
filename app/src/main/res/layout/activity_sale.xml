@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivitySaleBinding">
+
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.SaleViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tool_bar">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_67"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:onClick="@{viewModel.clickSPCX}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/dp_2.5"
+                        android:drawableTop="@mipmap/shangpinkucun"
+                        android:gravity="center"
+                        android:text="商品促销"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_v_dark" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_67"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:onClick="@{viewModel.clickFWCX}"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/dp_2.5"
+                        android:drawableTop="@mipmap/fuwukucun"
+                        android:gravity="center"
+                        android:text="服务促销"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/line_h_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tool_bar">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_67"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:onClick="@{viewModel.clickSPCXSZ}"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/dp_2.5"
+                        android:drawableTop="@mipmap/xinzengfuwu"
+                        android:gravity="center"
+                        android:text="商品促销设置"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/line_v_dark" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_67"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:onClick="@{viewModel.clickFWCXSZ}"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/dp_2.5"
+                        android:drawableTop="@mipmap/shangpinpandian"
+                        android:gravity="center"
+                        android:text="服务促销设置"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,292 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NoTitleAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/text_light</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
+
+
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@android:color/white</item>
+        <item name="tabSelectedTextColor">@color/color_main</item>
+        <item name="tabTextColor">@color/text_tab_pink_normal</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+
+    <style name="TCnormalTS12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="TCnormalTS14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="TClightTS12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#999999</item>
+    </style>
+
+    <style name="TClightTS14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#999999</item>
+    </style>
+
+    <style name="TCdarkTS12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TCdarkTS13">
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TCdarkTS14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TCdarkTS18">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TCredTS12">
+        <item name="android:textSize">@dimen/sp_6_5</item>
+        <item name="android:textColor">@color/text_money</item>
+    </style>
+
+    <style name="TCredTS14">
+        <item name="android:textSize">@dimen/sp_7_5</item>
+        <item name="android:textColor">@color/text_money</item>
+    </style>
+
+    <style name="TCredTS13">
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/text_money</item>
+    </style>
+
+    <style name="TCNormalTS13">
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/text_normal</item>
+    </style>
+    <style name="TCNormalTS14">
+        <item name="android:textSize">@dimen/sp_7_5</item>
+        <item name="android:textColor">@color/text_normal</item>
+    </style>
+
+    <style name="TCLightTS13">
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+    <style name="TCBlackTS13">
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+    <style name="TCBlackTS14">
+        <item name="android:textSize">@dimen/sp_7_5</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TCBlueTS13">
+        <item name="android:textSize">@dimen/sp_7</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+    <style name="TCBlueTS14">
+        <item name="android:textSize">@dimen/sp_7_5</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="ButtonNormal" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:background">@drawable/selector_press_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+    </style>
+
+    <style name="ButtonNormalMargin" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_marginLeft">@dimen/padding_or_margin</item>
+        <item name="android:layout_marginRight">@dimen/padding_or_margin</item>
+        <item name="android:background">@drawable/selector_press_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+    </style>
+
+
+    <style name="NoneDataIv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="NetworkErrorIv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+
+    <style name="ButtonNormalMarginAlignBottom" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_marginLeft">@dimen/padding_or_margin</item>
+        <item name="android:layout_marginRight">@dimen/padding_or_margin</item>
+        <item name="android:layout_marginBottom">@dimen/padding_or_margin</item>
+        <item name="android:layout_marginTop">@dimen/padding_or_margin</item>
+        <item name="android:background">@drawable/selector_press_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+    </style>
+
+    <style name="ButtonNormalAlignBottomFull" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:background">@drawable/selector_press_button_color</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <style name="ButtonNormalAlignBottomEnableFull" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:background">@drawable/selector_press_and_enable_button_color</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <style name="ButtonNormalCommit" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:background">@drawable/selector_blue_btn_bg</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+
+
+    <style name="CustomAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@mipmap/login_bg</item>
+    </style>
+
+    <style name="ThemeCustomDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+
+
+    <style name="Theme_RequestDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否有标题 -->
+        <item name="android:windowNoTitle">false</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="RequestProgressStyle">
+        <item name="android:indeterminateDrawable">@drawable/request_progressbar</item>
+        <item name="android:indeterminateDuration">1200</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
+    <style name="time_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="ThemeCustomDialog_Animation" parent="android:Animation">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="@android:windowEnterAnimation">@anim/ver_tran_in</item>
+        <item name="@android:windowExitAnimation">@anim/ver_tran_out</item>
+    </style>
+
+
+    <style name="ThemeButtonNormal">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:background">@drawable/selector_press_button_empty</item>
+        <item name="@android:textColor">@color/selector_press_button_text_color</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="CollectMenuButton">
+        <item name="android:layout_width">65dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:background">@drawable/selector_press_button_empty</item>
+        <item name="@android:textColor">@color/selector_press_button_text_color</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ThemeButtonDelNormal">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:background">@drawable/shape_red_input</item>
+        <item name="@android:textColor">@color/common_red</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="ThemePressBg">
+        <item name="android:background">@drawable/selector_press_bg</item>
+    </style>
+
+    <style name="ThemePressLeftBg">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/color_main</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+        <item name="android:background">@drawable/selector_press_bg</item>
+    </style>
+
+    <style name="ThemePressRightBg" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/selector_press_button_color</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_button_size</item>
+    </style>
+    <style name="NoTitleAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="NoTitleAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <declare-styleable name="NestedRefreshLayout">
+        <attr name="pullView" format="integer" />
+        <attr name="pullViewHeight" format="dimension|reference" />
+        <attr name="pullMinViewHeight" format="dimension|reference" />
+        <attr name="pullMaxHeight" format="dimension|reference" />
+        <attr name="refreshHeight" format="dimension|reference" />
+        <attr name="animPlayDuration" format="integer" />
+    </declare-styleable>
+</resources>

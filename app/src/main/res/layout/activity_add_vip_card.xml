@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityAddVipCardBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.AddVipCardViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/vip_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/ll1_0"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:drawableLeft="@mipmap/huiyuanka"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="卡号名称 :" />
+
+                <ys.app.pad.widget.ContainsEmojiEditText
+                    android:id="@+id/tel_et_0"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:hint="会员卡"
+                    android:text="@={viewModel.obCardName}" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_vip_card_warn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:text="例：9折即在原价上*0.9,95折即在原价上*0.95,不打折即无折扣。"
+                android:textColor="@color/text_normal"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@+id/vip_ll">
+
+
+            <ys.app.pad.widget.MyNestedScrollView
+                android:id="@+id/scrollView_0"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/button_height">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/blue"
+                        android:text="商品折扣：" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        app:goodsTypeAdapterData="@{viewModel.goodTypeInfos}"
+                        app:isAddVipCard="@{viewModel.obIsIsAddVipCard}"
+                        app:isInput="@{viewModel.obIsInput}" />
+
+                </LinearLayout>
+            </ys.app.pad.widget.MyNestedScrollView>
+            <ys.app.pad.widget.MyNestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/button_height">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/blue"
+                        android:text="服务折扣：" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        app:isAddVipCard="@{viewModel.obIsIsAddVipCard}"
+                        app:isInput="@{viewModel.obIsInput}"
+                        app:serviceTypeAdapterData="@{viewModel.serviceTypeInfos}" />
+
+                </LinearLayout>
+            </ys.app.pad.widget.MyNestedScrollView>
+
+            <!--<Button-->
+                <!--android:id="@+id/ok_btn"-->
+                <!--style="@style/ButtonNormalAlignBottomEnableFull"-->
+                <!--android:enabled="@{viewModel.obButtonEnable}"-->
+                <!--android:onClick="@{viewModel.clickButton}"-->
+                <!--android:text="确定" />-->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

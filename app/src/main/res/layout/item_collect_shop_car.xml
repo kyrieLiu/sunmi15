@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ys.app.pad.widget.SwipeMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_23"
+    android:layout_marginBottom="@dimen/dp_0.5"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_item_collect_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/zengsong"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_item_collect_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:singleLine="true"
+
+                android:text="商品名称"
+                android:textSize="@dimen/sp_7_5" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/ll_item_collect_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_item_collect_num"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="55"
+                android:textSize="@dimen/text_size_small" />
+
+            <ImageView
+                android:id="@+id/iv_item_collect_remove"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/et_item_collect_num"
+                android:src="@mipmap/less" />
+
+            <ImageView
+                android:id="@+id/iv_item_collect_add"
+                android:layout_width="@dimen/dp_11"
+                android:layout_height="@dimen/dp_11"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/et_item_collect_num"
+                android:src="@mipmap/add" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/et_item_collect_price"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:minWidth="20dp"
+                android:clickable="true"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/text_money"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/et_item_collect_price"
+                android:text="¥"
+                android:textColor="@color/text_money"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.95">
+
+            <TextView
+                android:id="@+id/tv_item_collect_employee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_login_input"
+                android:paddingLeft="@dimen/dp_4"
+                android:paddingRight="@dimen/dp_4"
+                android:paddingTop="@dimen/dp_2"
+                android:paddingBottom="@dimen/dp_2"
+                android:text="员工>"
+                android:textSize="@dimen/sp_7" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05"
+            android:background="#1086DC"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_item_collect_setGift"
+            android:layout_width="@dimen/dp_28"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="#1086DC"
+            android:text="赠送"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/bt_item_collect_delete"
+            android:layout_width="@dimen/dp_28"
+            android:layout_height="match_parent"
+            android:background="#F2606E"
+            android:text="删除"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</ys.app.pad.widget.SwipeMenuView>
+
+
+

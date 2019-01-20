@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="lyy.pet.boss.activity.OutStorageDetialActivity">
+
+    <data class="OutStorageDetialBinding">
+        
+        <import type="ys.app.pad.utils.DateUtil"></import>
+        <import type="ys.app.pad.widget.timeselector.Utils.TextUtil"></import>
+        <import type="android.view.View"/>
+        <variable
+            name="dataBean"
+            type="ys.app.pad.model.OutStorageInfo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view"
+            android:layout_marginBottom="@dimen/dp_5" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:id="@+id/tv_shop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{dataBean.commdityName}"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:id="@+id/shop_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/tv_shop"
+                        android:layout_alignBottom="@+id/tv_shop"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:text="商品名称"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{DateUtil.longFormatDate2(dataBean.dotime)}"
+                        
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView2"
+                        android:layout_alignBottom="@+id/textView2"
+                        android:layout_toEndOf="@+id/iv0"
+                        android:layout_toRightOf="@+id/iv0"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:text="记录时间"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv1"
+                        android:text="类型"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{dataBean.typeName}"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv2"
+                        android:text="数量"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{String.valueOf(dataBean.num)}"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv3"
+                        android:text="单位"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{dataBean.unit}"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv4"
+                        android:text="成本价"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{String.valueOf(dataBean.costAmt)}"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv6"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:text="销售价"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{String.valueOf(dataBean.realAmt)}"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:visibility="@{dataBean.realMoney == 0?View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv6"
+                        android:layout_marginLeft="10dp"
+                        android:text="交易价"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{String.valueOf(dataBean.realMoney)}"
+                        android:textSize="@dimen/text_size_normal" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv6"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:text="说明"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@{TextUtil.isEmpty(dataBean.reasons)?@string/wu:dataBean.reasons}"
+                        android:textSize="@dimen/sp_7" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

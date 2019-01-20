@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ForgetPwdActivityBinding">
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.ForgetPwdViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/tv_forget_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="40dp"
+                    android:text="接收验证码手机号" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:counterMaxLength="6">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="请输入验证码"
+                        android:inputType="numberPassword"
+                        android:maxLines="1"
+                        android:text="@={viewModel.smsCode}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.sendSms()}"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@color/white"
+                    android:enabled="@{viewModel.canSend}"
+                    android:background="@drawable/selector_blue_btn_bg"
+                    tools:text="发送短信"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:text="* 短信验证码有效期10分钟"
+                android:textColor="@color/text_money"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok_btn"
+            style="@style/ButtonNormalAlignBottomEnableFull"
+            android:onClick="@{viewModel.clickOkBtn}"
+            android:text="下一步" />
+
+    </RelativeLayout>
+</layout>

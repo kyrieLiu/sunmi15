@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_dialog_bg">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:paddingBottom="15dp"
+            android:orientation="vertical"
+            >
+
+      <!--      <android.support.design.widget.TextInputLayout
+                android:id="@+id/til"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                >
+
+                <EditText
+                    android:id="@+id/etPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:hint="请输入店长密码"
+                    android:textCursorDrawable="@drawable/edit_cursor"
+                    android:textSelectHandle="@drawable/edit_select_handle"
+                    android:background="@null"
+                    android:textColor="@color/text_normal"
+                    android:inputType="numberPassword"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>-->
+            <EditText
+                android:id="@+id/etPwd"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="请输入店长密码"
+                android:background="@null"
+                android:textColor="@color/text_normal"
+                android:inputType="numberPassword"
+                android:layout_marginTop="@dimen/dp_15"
+                android:maxLines="1" />
+            <EditText
+                android:id="@+id/etNum"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_normal"
+                android:inputType="number"
+                android:visibility="gone"
+                android:maxLines="1" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_main"
+                />
+        </LinearLayout>
+
+
+        <include layout="@layout/line_h_normal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <LinearLayout
+                android:id="@+id/down_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/cancel_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="取消"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        tools:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/line_divide_normal" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/ok_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="确定"
+                        android:textColor="@color/color_main"
+                        android:textSize="14sp"
+                        tools:visibility="visible" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

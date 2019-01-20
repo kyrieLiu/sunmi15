@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_165"
+    android:layout_height="@dimen/dp_225"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_dialog_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:background="@color/color_main"
+           android:layout_height="@dimen/dp_22">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="会员提醒"
+               android:textColor="@color/white"
+               android:layout_centerInParent="true"
+               android:textSize="@dimen/sp_8"/>
+           <TextView
+               android:id="@+id/tv_dialog_pet_warn_close"
+               android:layout_width="30dp"
+               android:layout_height="match_parent"
+               android:layout_alignParentRight="true"
+               android:layout_centerVertical="true"
+               android:gravity="center"
+               android:layout_marginRight="10dp"
+               android:text="X"
+               android:textSize="@dimen/sp_8"
+               android:textColor="@color/white"
+               />
+
+       </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

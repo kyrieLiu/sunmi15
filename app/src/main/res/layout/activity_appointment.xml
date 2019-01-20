@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/status_bar_height"
+        android:background="@color/white"
+        />
+    <include layout="@layout/tool_bar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_white_blue_bg"
+        android:padding="1.1dp"
+        android:layout_gravity="center_horizontal">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_vp_with_tab"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/dp_16"
+            android:background="@android:color/transparent"
+            app:tabTextColor="@color/blue"
+            app:tabSelectedTextColor="@color/white"
+            app:tabBackground="@drawable/selector_blue"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="center"
+            app:tabMode="scrollable"
+            />
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_vp_with_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

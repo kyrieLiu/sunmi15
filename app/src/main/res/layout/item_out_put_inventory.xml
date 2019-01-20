@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data class="ItemOutPutBinding">
+        <import type="android.view.View"></import>
+        <import type="ys.app.pad.utils.AppUtil"></import>
+       <import type="ys.app.pad.utils.DateUtil"></import>
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.itemmodel.OutPutItemModel"></variable>
+    </data>
+    <android.support.v7.widget.CardView
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_2.5"
+        android:onClick="@{itemViewModel.clickItem}"
+        android:background="@color/white">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_height="@dimen/dp_33">
+            <TextView
+                android:id="@+id/item_stock_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/sp_6_5"
+                android:layout_marginTop="@dimen/dp_3"
+                android:text="@{DateUtil.longFormatDate2(itemViewModel.model.dotime)}"
+                tools:text="2017-11-03 03:11" />
+                <TextView
+                    android:id="@+id/item_stock_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:singleLine="true"
+                    android:layout_toLeftOf="@+id/item_stock_time"
+                    android:text="@{itemViewModel.model.commdityName}"
+                    tools:text="@string/app_name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp_5"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:text="@{itemViewModel.model.num + itemViewModel.model.unit}"
+                    tools:text="数量" />
+
+
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>

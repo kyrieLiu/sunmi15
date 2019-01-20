@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemSearchGoodsBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.SearchGoodsItemViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_2.5"
+                android:clipChildren="true"
+                android:orientation="vertical">
+
+                <ys.app.pad.widget.RotateTextView
+                    android:layout_width="@dimen/dp_34"
+                    android:layout_height="@dimen/dp_34"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_horizontal"
+                    android:text="@{itemViewModel.model.promotionType==2?@string/lijian:itemViewModel.model.promotionNum+@string/zhe}"
+                    android:textColor="#0e932e"
+                    android:textSize="@dimen/sp_5_5"
+                    android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}" />
+
+                <TextView
+                    android:layout_width="@dimen/dp_22"
+                    android:layout_height="@dimen/dp_22"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/xiexian"
+                    android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}" />
+
+                <LinearLayout
+                    android:id="@+id/ll1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_14"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLength="11"
+                        android:text="@{itemViewModel.model.name}"
+                        android:textColor="@color/text_dark"
+                        android:textSize="@dimen/sp_6_5"
+                        tools:text="商品名称商品名称商品名称商品名称商品名称商品名称商品名称" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll1"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:layout_marginTop="@dimen/dp_5">
+
+                    <TextView
+                        android:id="@+id/danwei"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_1"
+                        android:text="¥"
+                        android:textColor="@color/text_money"
+                        android:textSize="@dimen/sp_7" />
+
+                    <TextView
+                        android:id="@+id/jine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/danwei"
+                        android:layout_marginLeft="@dimen/dp_1"
+                        android:layout_toRightOf="@+id/danwei"
+                        android:text="@{itemViewModel.model.isPromotion==1?itemViewModel.costPrice:itemViewModel.price}"
+                        android:textColor="@color/text_money"
+                        android:textSize="@dimen/sp_9"
+                        tools:text="30.0" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/danwei"
+                        android:layout_marginBottom="@dimen/dp_1"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_toRightOf="@+id/jine"
+                        android:background="@drawable/shape_line_light"
+                        android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dp_1"
+                            android:layout_marginRight="@dimen/dp_1"
+                            android:text='@{@string/rmb+itemViewModel.price}'
+                            android:textColor="@color/text_light"
+                            android:textSize="@dimen/sp_5_5" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl2"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/gg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="规格："
+                            android:textColor="@color/text_light"
+                            android:textSize="@dimen/sp_5_5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/gg"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/gg"
+                            android:layout_weight="1"
+                            android:text="@{itemViewModel.model.unit}"
+                            android:textSize="@dimen/sp_6_5"
+                            tools:text="袋" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/kc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="库存："
+                            android:textColor="@color/text_light"
+                            android:textSize="@dimen/sp_5_5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/kc"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/kc"
+                            android:text="@{String.valueOf(itemViewModel.model.stockNum)}"
+                            android:textSize="@dimen/sp_6_5"
+                            tools:text="0" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/line_divide_normal" />
+
+            <TextView
+                android:onClick="@{itemViewModel.clickAddShoppingButton}"
+                android:layout_width="@dimen/dp_45"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/jiarugouwuche"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="11"
+                android:drawablePadding="@dimen/dp_5"
+                android:text="加入购物車"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_6_5" />
+        </LinearLayout>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_dark"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</layout>

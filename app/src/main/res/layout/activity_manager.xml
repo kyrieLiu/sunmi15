@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityManagerBinding">
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.ManagerViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginBottom="@dimen/dp_2.5"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:layout_marginTop="@dimen/dp_5"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                android:onClick="@{()->viewModel.clickSystemSetting()}"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/xiugaimima2"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="系统设置"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal" />
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:layout_marginTop="@dimen/dp_5"
+                android:onClick="@{viewModel.clickManagerEmployeeBtn}"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/yuangongguanli"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="员工管理"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:layout_marginTop="@dimen/dp_5"
+                android:onClick="@{viewModel.clickVipCardBtn}"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/huiyuankaguanli"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="卡片管理"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal"/>
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:layout_marginTop="@dimen/dp_5"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                android:onClick="@{()->viewModel.clickAllotMange()}"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/xiugaimima2"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="调拨管理"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal" />
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:layout_marginTop="@dimen/dp_5"
+                android:onClick="@{viewModel.clickModifyBtn}"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/xiugaimima2"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="修改登陆密码"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:onClick="@{viewModel.clickModifyBossPswBtn}"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                android:layout_marginTop="@dimen/dp_2.5"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/xiugaimima2"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="修改店长密码"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginLeft="@dimen/margin_200"
+                android:layout_marginRight="@dimen/margin_200"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_2.5"
+                android:onClick="@{viewModel.clickAboutBtn}"
+                app:cardCornerRadius="@dimen/dp_4_5"
+                app:cardElevation="@dimen/dp_1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:drawableLeft="@mipmap/xiugaimima2"
+                    android:drawablePadding="@dimen/dp_11"
+                    android:drawableRight="@mipmap/youjiantou"
+                    android:gravity="center_vertical"
+                    android:text="关于我们"
+                    android:textSize="@dimen/sp_7_5"
+                    android:textColor="@color/text_normal"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok_btn"
+            style="@style/ButtonNormalAlignBottomEnableFull"
+            android:onClick="@{viewModel.clickOkBtn}"
+            android:text="签退" />
+
+    </RelativeLayout>
+</layout>

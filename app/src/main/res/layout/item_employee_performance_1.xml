@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemEmployeePerformance1Binding">
+
+        <import type="android.view.View" />
+
+        <import type="ys.app.pad.utils.DateUtil" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.manage.EmployeePerformance1ItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layerType="software"
+            android:src="@drawable/dash_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8">
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:text="@{itemViewModel.model.name}"
+                    android:textColor="@{1 == itemViewModel.model.isGift?@color/text_light:@color/text_normal}"
+                    tools:text="比熊犬"
+                    android:textSize="@dimen/sp_7"/>
+
+                <TextView
+                    android:id="@+id/type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/name_tv"
+                    android:text="@{itemViewModel.model.productTypeName}"
+                    android:textColor="@{1 == itemViewModel.model.isGift?@color/text_light:@color/text_normal}"
+                    tools:text="(活体)"
+                    android:textSize="@dimen/sp_7"/>
+
+                <TextView
+                    android:id="@+id/employee_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:text="@{DateUtil.longFormatDate3(itemViewModel.model.payDate)}"
+                    android:textColor="@{1 == itemViewModel.model.isGift?@color/text_light:@color/text_normal}"
+                    android:textSize="@dimen/sp_7"
+                    tools:text="2017-05-02 20:08:20" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_2.5"
+                        android:textColor="@{1 == itemViewModel.model.isGift?@color/text_light:@color/text_normal}"
+                        app:isFold="@{itemViewModel.model.isFold}"
+                        app:isPromotion="@{itemViewModel.model.isPromotion}"
+                        app:vipPrice="@{itemViewModel.model.vipPrice}"
+                        app:isClassification="@{itemViewModel.model.isClassification}"
+                        tools:text="￥50"
+                        android:textSize="@dimen/sp_6_5"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_line_light"
+                        android:visibility="gone"
+                        app:isPromotion="@{itemViewModel.model.isPromotion}"
+                        app:isClassification="@{itemViewModel.model.isClassification}"
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:text="@{@string/rmb+AppUtil.formatStandardMoney(itemViewModel.model.price)}"
+                            android:textColor="@color/text_light"
+                            android:textSize="@dimen/sp_6_5"
+                            tools:text="￥80" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{@string/xh+String.valueOf(itemViewModel.model.count)}"
+                    android:textColor="@{1 == itemViewModel.model.isGift?@color/text_light:@color/text_normal}"
+                    tools:text="× 3"
+                    android:textSize="@dimen/sp_6_5"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/line_divide_normal"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_6"
+                    app:isFold="@{itemViewModel.model.isFold}"
+                    app:isPromotion="@{itemViewModel.model.isPromotion}"
+                    app:vipUserId="@{itemViewModel.model.vipUserId}"
+                    tools:text="参与折上折" />
+
+                <TextView
+                    android:id="@+id/total_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@{AppUtil.formatStandardMoney(itemViewModel.model.countVipMoney)}"
+                    android:textColor="@color/text_money"
+                    app:realMoney="@{itemViewModel.model.realMoney}"
+                    tools:text="总价：￥150"
+                    android:textSize="@dimen/sp_6_5"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/zengsong"
+            android:visibility="@{1 == itemViewModel.model.isGift?View.VISIBLE:View.GONE}" />
+
+    </RelativeLayout>
+</layout>

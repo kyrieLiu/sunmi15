@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityEmployeePerformanceBinding">
+
+        <import type="android.view.View" />
+
+        <import type="ys.app.pad.utils.MathUtil" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.EmployeePerformanceViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white"
+            />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view"
+            layout="@layout/tool_bar" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/line_divide_normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_25"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:text='@{@string/ljze+AppUtil.formatStandardMoney(MathUtil.add(viewModel.obServiceTotalMoney,viewModel.obGoodsTotalMoney,viewModel.obChargeTotalMoney))+@string/yuan}'
+                    tools:text="累计金额 : "
+                    android:textSize="@dimen/sp_8"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:background="@color/line_divide_normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.obIsServiceSuccess?View.VISIBLE:View.GONE}">
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_25"
+                        android:gravity="center"
+                        android:text='@{@string/fwze+AppUtil.formatStandardMoney(viewModel.obServiceTotalMoney)+@string/yuan}'
+                        android:textSize="@dimen/sp_8"
+                        tools:text="服务总额：" />
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_2.5"
+                        android:layout_marginTop="@dimen/dp_2.5"
+                        android:background="@color/white" />
+
+                    <include layout="@layout/line_h_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.obIsGoodsSuccess?View.VISIBLE:View.GONE}">
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_25"
+                        android:gravity="center"
+                        android:text='@{@string/spze+AppUtil.formatStandardMoney(viewModel.obGoodsTotalMoney)+@string/yuan}'
+                        android:textSize="@dimen/sp_8"
+                        tools:text="商品总额：" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_2.5"
+                        android:layout_marginTop="@dimen/dp_2.5"
+                        android:background="@color/white" />
+
+                    <include layout="@layout/line_h_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.obIsChargeSuccess?View.VISIBLE:View.GONE}">
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_25"
+                        android:gravity="center"
+                        android:text='@{@string/czze+AppUtil.formatStandardMoney(viewModel.obChargeTotalMoney)+@string/yuan}'
+                        android:textSize="@dimen/sp_8"
+                        tools:text="充值总额：" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_2.5"
+                        android:layout_marginTop="@dimen/dp_2.5"
+                        android:background="@color/white" />
+
+                    <include layout="@layout/line_h_normal" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/networkErrorIv"
+            style="@style/NetworkErrorIv"
+            android:layout_below="@id/tool_bar"
+            android:onClick="@{viewModel.onClickNetWorkError}"
+            android:src="@mipmap/network_error"
+            android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}"
+            tools:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tool_bar"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/bg"
+            android:visibility="@{viewModel.isLoadingVisible?View.VISIBLE:View.GONE}"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/yyp" />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/RequestProgressStyle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

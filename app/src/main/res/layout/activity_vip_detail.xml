@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityVipDetailBinding">
+
+        <import type="android.view.View" />
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.vip.VipDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25" />
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:orientation="horizontal"
+            >
+            
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rl_vip_detail_menu"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:background="@color/line_divide_normal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_22">
+
+                        <ImageView
+                            android:id="@+id/iv0"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/huiyuanxingming" />
+
+                        <TextView
+                            android:id="@+id/tv_vip_detail_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:text="@{viewModel.mInfo.name}"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/textView2"
+                            android:layout_alignBottom="@+id/textView2"
+                            android:layout_toEndOf="@+id/iv0"
+                            android:layout_toRightOf="@+id/iv0"
+                            android:layout_centerVertical="true"
+                            android:text="会员姓名"
+                            android:textSize="@dimen/sp_7_5" />
+                    </RelativeLayout>
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_22">
+
+                        <ImageView
+                            android:id="@+id/iv1"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/huiyuanka" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv1"
+                            android:text="会员电话"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <TextView
+                            android:id="@+id/tv_vip_detail_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:text="@{viewModel.mInfo.phone}"
+                            android:textSize="@dimen/sp_7_5" />
+                    </RelativeLayout>
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_22">
+
+                        <ImageView
+                            android:id="@+id/iv2"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/huiyuanka" />
+
+                        <TextView
+                            android:id="@+id/tv_vip_detail_cardNO"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv2"
+                            android:text="会员卡号"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:text="@{viewModel.mInfo.cardNo}"
+                            android:textSize="@dimen/sp_7_5" />
+                    </RelativeLayout>
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_22">
+
+                        <ImageView
+                            android:id="@+id/iv3"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/chongzhijine" />
+
+                        <TextView
+                            android:id="@+id/tv_vip_detail_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv3"
+                            android:text="当前余额"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="150dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:layout_centerVertical="true"
+                            android:scrollbars="none"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{viewModel.money}'
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@color/text_money"
+                                android:textSize="@dimen/sp_7_5" />
+                        </HorizontalScrollView>
+                    </RelativeLayout>
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_22">
+
+                        <ImageView
+                            android:id="@+id/iv4"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/change" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv4"
+                            android:text="卡片类型"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <TextView
+                            android:id="@+id/tv_vipcard_detail_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:text="@{viewModel.mInfo.typeName}"
+                            android:textSize="@dimen/sp_7_5" />
+                    </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_vip_detail_birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_22"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:visibility="gone"
+                        >
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/huiyuanka" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="生日折扣"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <TextView
+                            android:id="@+id/tv_vip_detail_birthday_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:text="生日卡"
+                            android:gravity="right"
+                            android:textSize="@dimen/sp_7_5" />
+                    </LinearLayout>
+
+
+                    <include layout="@layout/line_h_normal" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="@dimen/dp_22">
+
+                        <ImageView
+                            android:id="@+id/iv6"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:layout_marginRight="@dimen/dp_2.5"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/change" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv6"
+                            android:text="会员积分"
+                            android:textSize="@dimen/sp_7_5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_5"
+                            android:text="@{String.valueOf(viewModel.mInfo.integral)}"
+                            android:textSize="@dimen/sp_7_5" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:visibility="@{viewModel.isAnimal?View.VISIBLE:View.GONE}">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/white"
+                    android:onClick="@{()->viewModel.clickAddAnimal()}"
+                    android:src="@mipmap/add_animal"
+                    android:scaleType="center"
+                    android:visibility="@{viewModel.isAnimal?View.GONE:View.VISIBLE}" />
+
+            </LinearLayout>
+
+        </ScrollView>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg">
+
+    <include
+        android:id="@+id/loading_viewstub"
+        layout="@layout/load_more_footer_loading" />
+
+    <include
+        android:id="@+id/end_viewstub"
+        layout="@layout/load_more_footer_end" />
+
+    <include
+        android:id="@+id/network_error_viewstub"
+        layout="@layout/load_more_footer_network_error" />
+
+
+</RelativeLayout>

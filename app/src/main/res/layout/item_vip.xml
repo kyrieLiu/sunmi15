@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemVipBinding">
+
+        <import type="java.util.List" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+        <import type="android.view.View"></import>
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.vip.VipItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_56">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:background="@mipmap/huiyuankalanbeijing">
+
+            <RelativeLayout
+                android:id="@+id/up_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5">
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:text="@{itemViewModel.model.name}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_7_5"
+                    tools:text="会员姓名" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_toRightOf="@+id/name_tv"
+                    android:text="@{itemViewModel.model.phone}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_6_5"
+                    tools:text="18239900654" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:text="@{itemViewModel.model.typeName}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_6_5"
+                    tools:text="铜卡" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_11"
+                        android:src="@mipmap/icon_pet_white"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.obAnimal1Name}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_7"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        tools:text="@string/app_name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.obAnimal2Name}"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_7"
+                        tools:text="@string/app_name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.obAnimal3Name}"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_7"
+                        tools:text="@string/app_name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.obAnimal4Name}"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:textSize="@dimen/sp_6_5"
+                        tools:text="@string/app_name" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginLeft="240dp"
+                    android:layout_alignParentRight="true"
+                    android:scrollbars="none"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_item_vip_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{itemViewModel.money}'
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:singleLine="true"
+                        android:textSize="@dimen/sp_7"
+                        tools:text="50000000000000000" />
+                </HorizontalScrollView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_39"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:src="@mipmap/yizuofei"
+                    android:visibility="@{itemViewModel.model.cardState==3?View.VISIBLE:View.GONE}"
+                    tools:visibility="visible"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_14"
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/huiyuankatouming">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:text='@{"NO:"+itemViewModel.model.cardNo}'
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_5_5"
+                    tools:text="NO:96512456611489" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text='@{itemViewModel.creatShop}'
+                    android:textColor="@color/text_yellow"
+                    android:layout_marginRight="@dimen/dp_8"
+                    android:textSize="@dimen/sp_5_5"
+                    tools:text="本店创建" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/huiyuantouying" />
+
+
+    </RelativeLayout>
+</layout>

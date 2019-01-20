@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityAboutUsBinding">
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.AboutUsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/line_divide_normal">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/view" />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:text="@{viewModel.obVersionName}"
+                tools:text="当前版本1.1.1"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="400dp"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginLeft="@dimen/margin_200"
+            android:layout_marginRight="@dimen/margin_200"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_2.5"
+            android:onClick="@{()->viewModel.clickFunctionList()}"
+            app:cardElevation="@dimen/dp_1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:drawableLeft="@mipmap/xiugaimima2"
+                android:drawablePadding="@dimen/dp_11"
+                android:drawableRight="@mipmap/youjiantou"
+                android:gravity="center_vertical"
+                android:text="功能介绍"
+                android:textSize="@dimen/sp_7_5"
+                android:textColor="@color/text_normal"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</layout>

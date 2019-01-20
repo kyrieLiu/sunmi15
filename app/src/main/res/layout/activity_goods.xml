@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityGoodsBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.GoodsActivityViewModel" />
+    </data>
+
+    <com.flipboard.bottomsheet.BottomSheetLayout
+        android:layout_below="@+id/view"
+        android:id="@+id/bottomSheetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                layout="@layout/tool_bar_pad_huiyuan"
+                android:id="@+id/layout_head" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_below="@+id/layout_head">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:background="@color/recycler_bg"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/logo_title"
+                            android:layout_margin="5dp"/>
+                        <LinearLayout
+                            android:id="@+id/ll_collectMoney_goods"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/padding_or_margin"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_collectMoney_goods_top"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <!--<ImageView-->
+                                    <!--android:id="@+id/iv_collectMoney_trade"-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_centerVertical="true"-->
+                                    <!--android:src="@mipmap/caidanshangpinw"-->
+                                    <!--/>-->
+
+                                <TextView
+                                    android:id="@+id/tv_collect_money_goods"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="商品"
+                                    android:textColor="@color/text_white"
+                                    android:textSize="@dimen/sp_9" />
+                            </RelativeLayout>
+
+
+                            <ImageView
+                                android:id="@+id/iv_arrow_service"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/arrow_down_blue" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_collectMoney_trade"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            </android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
+                    android:background="@color/bg"
+                    android:layout_height="match_parent">
+                        <ys.app.pad.widget.wrapperRecylerView.IRecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:loadMoreEnabled="true"
+                            app:loadMoreFooterLayout="@layout/layout_irecyclerview_footer"
+                            app:refreshEnabled="true"
+                            app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+                    <ImageView
+                        android:id="@+id/noneDataIv"
+                        style="@style/NoneDataIv"
+                        android:src="@mipmap/none_data"
+                        android:visibility="@{viewModel.isNoneDataVisible?View.VISIBLE:View.GONE}" />
+
+                    <ImageView
+                        android:id="@+id/networkErrorIv"
+                        style="@style/NetworkErrorIv"
+                        android:onClick="@{viewModel.onClickNetWorkError}"
+                        android:src="@mipmap/network_error"
+                        android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:visibility="@{viewModel.isLoadingVisible?View.VISIBLE:View.GONE}">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/yyp" />
+
+                        <ProgressBar
+                            android:id="@+id/progressbar"
+                            style="@style/RequestProgressStyle"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </com.flipboard.bottomsheet.BottomSheetLayout>
+</layout>

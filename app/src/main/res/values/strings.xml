@@ -1,0 +1,191 @@
+<resources>
+    <string name="app_name">智选E派</string>
+    <string name="list_footer_loading">正在加载中...</string>
+    <string name="list_footer_network_error">点击重新加载</string>
+    <string name="list_footer_load_finish">加载完毕</string>
+    <string name="list_footer_end">已经到底了</string>
+
+
+    <!-- CropView -->
+    <string name="crop_image_activity_title"></string>
+    <string name="crop_image_menu_rotate_left">反时针旋转</string>
+    <string name="crop_image_menu_rotate_right">旋转</string>
+    <string name="crop_image_menu_crop">裁剪</string>
+    <string name="pick_image_intent_chooser_title">选择图片</string>
+
+    <string name="service_name">服务名称: </string>
+    <string name="yuan"> 元</string>
+    <string name="zhe"> 折</string>
+    <string name="amount">× </string>
+    <string name="sui">岁</string>
+    <string name="wu">无</string>
+    <string name="fuhao">¥ </string>
+    <string name="gong">公</string>
+    <string name="mu">母</string>
+    <string name="inventory">库存：</string>
+    <string name="rmb">¥</string>
+    <string name="jsp">件</string>
+    <string name="orderDetailNum">种</string>
+    <string name="bdxp">补打小票</string>
+    <string name="qx">取消</string>
+    <string name="cxcz">重新充值</string>
+    <string name="cxzf">重新支付</string>
+    <string name="qd">确定</string>
+    <string name="gd">挂单</string>
+    <string name="cz">充值</string>
+    <string name="hykczdd">会员卡充值订单</string>
+    <string name="spfwdd">商品服务订单</string>
+    <string name="dd">订单</string>
+    <string name="mh">：</string>
+    <string name="czze">充值总额：</string>
+    <string name="fwze">服务总额：</string>
+    <string name="spze">商品总额：</string>
+    <string name="ljze">累计金额：</string>
+    <string name="hysj">会员手机：</string>
+    <string name="xzcw">新增宠物</string>
+    <string name="bjcw">编辑宠物</string>
+    <string name="yuangong">员工</string>
+    <string name="ygxm">服务姓名：</string>
+    <string name="bh">编号：</string>
+    <string name="rzsj">入职时间：</string>
+    <string name="gg">规格：</string>
+    <string name="zkh">(</string>
+    <string name="ykh">)</string>
+    <string name="lijian">立减</string>
+    <string name="zfcg">支付成功</string>
+    <string name="zfsb">支付失败</string>
+    <string name="sexw">性别:女</string>
+    <string name="sexm">性别:男</string>
+    <string name="nv">女</string>
+    <string name="nan">男</string>
+    <string name="jrxc">加入促销</string>
+    <string name="rjrxc">移除促销</string>
+    <string name="rk">入库</string>
+    <string name="ck">出库</string>
+    <string name="xiangqing">详情</string>
+    <string name="xh">x </string>
+    <string name="cjsj">创建时间：</string>
+    <string name="no">NO:</string>
+    <string name="py">盘盈</string>
+    <string name="pk">盘亏</string>
+    <string name="sl">数量：</string>
+    <string name="dj">单价：</string>
+    <string name="mc">名称：</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="empty"></string>
+    <string name="diaoru">调入</string>
+    <string name="diaochu">调出</string>
+    <string name="phone">电话 : </string>
+    <string name="serverEmployee">服务人员 : </string>
+    <string name="serverMatter">预约事项 : </string>
+    <string name="petName">宠物 :   </string>
+    <string name="vipName">会员 : </string>
+    <string name="normalCustom">非会员</string>
+    <string name="onlinePay">线上支付--------------------------------------------------------------------------------------------------------------------------------------------------------------------------</string>
+    <string name="offlinePay">线下支付--------------------------------------------------------------------------------------------------------------------------------------------------------------------------</string>
+    <string name="payFail">您的支付未完成，您可以挂单后重新支付，也可以取消支付，取消支付后再次购买需要重新下单。</string>
+    <string name="maohao">:</string>
+
+    <string name="toast_2">The service has been disconnected!</string>
+    <string name="toast_3">Bluetooth device is unavailable</string>
+    <string name="toast_4">Bluetooth device not detected. Please open Bluetooth!</string>
+    <string name="toast_5">Not Found InnterPrinter!</string>
+    <string name="toast_6">Bluetooth connect failed!</string>
+    <string name="toast_7"> Only a single Qr code is printed for the AIDL mode</string>
+    <string name="toast_8">Now QrCode size must be less than 7!</string>
+    <string name="forgot_psd"><u>忘记密码?</u></string>
+    <string name="permission_dialog_tip">存储权限不可用</string>
+    <string name="permission_dialog_message">该应用需要对文件进行操作，请授予读写文件的权限</string>
+    <string name="granted">立即授予</string>
+    <string name="denied">取消</string>
+    <string name="acquire_permission_success">权限获取成功</string>
+    <string name="permission_denied">存储权限不可用</string>
+    <string name="goto_setting">请在-应用设置-权限-中，允许双屏应用使用存储权限来保存用户数据</string>
+    <string name="allow">立即开启</string>
+    <string name="cancel">取消</string>
+    <string name="unconnect_main_service">与远程服务连接中断</string>
+    <string name="connect_main_service">与远程服务绑定成功</string>
+    <string name="connect_vice_service">与副屏服务通讯正常</string>
+    <string name="connect_vice_dsd">与副屏app通讯正常</string>
+
+    <string name="none_paired">No devices have been paired</string>
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_found">No devices found</string>
+    <string name="btnSearch">Connect  Bluetooth  Printer</string>
+    <string name="btnSend">Print</string>
+    <string name="btn_test">Print  Test  Page</string>
+    <string name="btnClose">Close</string>
+    <string name="txt_content">&quot;&quot;</string>
+    <string name="menu_settings">set</string>
+    <string name="strLang">en</string>
+    <string name="button_scan">Scan for devices</string>
+    <string name="foster_care_content_show">
+        三、付款方式：按预定日期寄养前一次性结清，多退少补\n四、客户服务方双方的权利和义务
+        \n  1、客户委托寄养的宠物应该在服务方得到合理的饮食、住所、日常养护和健康保障，其一切费用有服务方承担
+        \n  1）食物---为寄养宠物提供均衡营养，辅以洁净的饮水
+        \n  2）居住---为寄养宠物提供阳光充足，通风良好的居住环境，并保证有适当的活动空间及充足的运动量
+        \n  3）排泄---为寄养宠物提供洁净，卫生的室内如厕条件，并每日清理和定期消毒
+        \n  4）卫生清洁---为寄养宠物定期洗澡，毛皮梳理，修剪指甲，清理耳朵和眼睛保证体表卫生
+        \n  5）信息反馈---客户可对寄养宠物进行不定期回访，服务方应向客户提供寄养宠物信息
+        \n  2、客户应为服务方在寄养宠物期间提供必要的咨询和协助
+        \n  3、如宠物在寄养的过程中健康出现问题，客户应承担寄养后宠物的医疗费用，如寄养期间宠物出现丢失或意外死亡，责任由
+                \n  服务方承担，但若因病死亡，服务方不承担责任
+        \n  4、客户必须保证如实提供宠物真实的身体状况，如有隐瞒或提供不实情况，一切后果由客户自行承担，服务方不负有责任
+        \n五、本条款之未尽事宜，由双方自行约定
+        \n六、本确认单一式两份，具有同等效力，分别由双方保管</string>
+
+    <string name="foster_care_content">
+        三、付款方式：按预定日期寄养前一次性结清，多退少补\n四、客户服务方双方的权利和义务
+        \n  1、客户委托寄养的宠物应该在服务方得到合理的饮食、住所、日常养护和健康保障，其一切费用有服务方承担
+    </string>
+
+    <string name="foster_care_content_little">
+            1）食物---为寄养宠物提供均衡营养，辅以洁净的饮水
+        \n  2）居住---为寄养宠物提供阳光充足，通风良好的居住环境，并保证有适当的活动空间及充足的运动量
+        \n  3）排泄---为寄养宠物提供洁净，卫生的室内如厕条件，并每日清理和定期消毒
+        \n  4）卫生清洁---为寄养宠物定期洗澡，毛皮梳理，修剪指甲，清理耳朵和眼睛保证体表卫生
+        \n  5）信息反馈---客户可对寄养宠物进行不定期回访，服务方应向客户提供寄养宠物信息</string>
+
+    <string name="foster_care_content_end">
+        \n  2、客户应为服务方在寄养宠物期间提供必要的咨询和协助
+        \n  3、如宠物在寄养的过程中健康出现问题，客户应承担寄养后宠物的医疗费用，如寄养期间宠物出现丢失或意外死亡，责任由服务方承担，但若因病死亡，服务方不承担责任
+        \n  4、客户必须保证如实提供宠物真实的身体状况，如有隐瞒或提供不实情况，一切后果由客户自行承担，服务方不负有责任
+        \n五、本条款之未尽事宜，由双方自行约定
+        \n六、本确认单一式两份，具有同等效力，分别由客户服务方双方保管</string>
+    <string name="hairdressing_content">请您如实告知，如其对其他宠物、人或财务造成损害,您将会是责任人
+    \n本条款为美容确认详情服务条款及事项，之未尽事宜，由双方自行约定
+    \n本确认单一式两份，具有同等效力，分别由客户服务方双方保管</string>
+
+    <string name="album">album</string>
+
+    <string name="str_choice_printer_command">请选择正确的打印机指令</string>
+    <string name="str_printer_conn_normal">打印机连接正常</string>
+    <string name="str_printer_out_of_paper">打印机缺纸</string>
+    <string name="str_printer_open_cover">打印机开盖</string>
+    <string name="str_printer_error">打印机出错</string>
+    <string name="discount_price">促销价:  ¥</string>
+    <string name="vip_price">会员价:  ¥</string>
+    <string name="goods_standard">规格:  </string>
+    <string name="goods_inventory">库存:  </string>
+    <string name="update_information">致智选E派所有客户:\n
+       \t大家好! 非常感谢大家一直以来对我们的支持,从产品上线以来我们接收到许多客户非常好的建议,有很多建议我们都采纳并进行了开发迭代,因为客户需求很多, 所以仍然还有很多功能我们没能及时升级发布,我们也承诺所有客户: 后期会以每月1`2次的版本迭代来逐步完善我们的产品系统. 本次系统发布 V-1.2.0版本
+\n本次更新内容:\n
+1. 【功能介绍】新增功能介绍, 提示并解答版本主要更新内容, 操作更易上手\n
+2. 【收银小票】增加收银小票是否展现会员价权限设置, 默认不展示, 如需小票展示会员价, 则请前往管理-系统设置-收银小票设置进行设置选择开通. </string>
+    <string name="living_buy">
+            1  宠物为特殊活体商品。请看好再购买，一经出售概不退换
+        \n  2  考虑到动物自身免疫力差异和其它不可预测的因素，出售前进行一次传染性病毒测试（如猫瘟犬瘟细小病毒等），无以
+             上病毒的情况下可以出售。宠物售出后乙方将不再承担任何责任和义务。其它因买家个人饲养引起不当的感冒、发烧、
+             拉稀、呕吐、营养不良、低血糖、皮肤病等其它任何问题，乙方概不负责（全程会指导饲养，协助宠物顺利过渡更换
+             新环境）
+    </string>
+    <string name="living_buy_second">
+         4  宠物在出售后48小时内出现传染性疾病“犬瘟热”、“犬细小病毒”致命传染病问题。乙方承担犬只的全部治疗费用
+             或为甲方更换同等价格的宠物。48小时后乙方不再承担上述宠物的任何责任。
+        \n  5 乙方必须保证如实提供宠物真实的身体状况，如有隐瞒或提供不真实情况，一切后果由乙方承担，甲方不承担任何责任
+             本确认单一式两份，具有同等效力，分别由客户服务方双方保管
+    </string>
+
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_28"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/back_iv"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:src="@drawable/selector_press_back_grey" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/text_title"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_5"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/search_all_tv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_weight="1"
+            android:background="@drawable/shape_pad_search_bg"
+            android:drawablePadding="@dimen/dp_2.5"
+            android:drawableRight="@mipmap/fangdajing"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
+            android:textSize="@dimen/dp_7" />
+
+        <ImageView
+            android:id="@+id/iv_search_card"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/huiyuanka"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/add_iv"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/xinzeng" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/et_tool_ruku_saomiaoqiang"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginRight="@dimen/dp_101"
+        android:layout_alignParentRight="true"
+        android:hint="扫描枪扫描"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@mipmap/saomiaoqi"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
+        android:inputType="number"
+        android:drawablePadding="@dimen/dp_2.5"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/scan_iv"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/lansesaomiao"
+        android:layout_toLeftOf="@+id/et_tool_ruku_saomiaoqiang"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/shape_iv"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/shape_tool_bar_line" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/shape_iv"
+        android:background="#CAC4C6" />
+
+
+
+</RelativeLayout>

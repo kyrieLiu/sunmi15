@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/status_bar_height"
+        android:background="@color/white"
+        />
+        <include
+            layout="@layout/tool_bar_pad_huiyuan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar">
+
+
+
+            <RelativeLayout
+                android:id="@+id/vip_rl"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="@dimen/dp_28">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_16"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/vip_recharge_tv"
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_title_left"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="会员卡"
+                        android:textColor="@drawable/selector_title_text"
+                        android:textSize="@dimen/sp_7_5" />
+
+                    <TextView
+                        android:id="@+id/vip_consume_tv"
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_title_right"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="次卡"
+                        android:textColor="@drawable/selector_title_text"
+                        android:textSize="@dimen/sp_7_5" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/vip_rl" />
+        </RelativeLayout>
+
+</RelativeLayout>

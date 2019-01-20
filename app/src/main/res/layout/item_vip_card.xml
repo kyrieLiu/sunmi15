@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemVipCardBinding">
+
+        <import type="ys.app.pad.utils.AppUtil" />
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.manage.VipCardItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:onClick="@{itemViewModel.clickOpenOrClose}">
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="@dimen/dp_165"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:drawableLeft="@mipmap/huiyuanka"
+                android:drawablePadding="@dimen/dp_2.5"
+                android:text="@{itemViewModel.model.name}"
+                android:textSize="@dimen/sp_7"
+                android:textColor="@color/text_normal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_14"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_5">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:visibility="@{itemViewModel.obShowType==0?View.VISIBLE:View.GONE}"
+                    android:orientation="horizontal">
+
+                <Button
+                    style="@style/ThemeButtonNormal"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:gravity="center"
+                    android:onClick="@{itemViewModel.edit}"
+                    android:text="编辑"
+                    android:visibility="@{itemViewModel.model.state==3?View.GONE:View.VISIBLE}"
+                    android:textSize="@dimen/sp_7" />
+
+                <Button
+                    android:id="@+id/bt_vipCard_cancellation"
+                    style="@style/ThemeButtonNormal"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:gravity="center"
+                    android:onClick="@{itemViewModel.obsolete}"
+                    android:visibility="@{itemViewModel.model.classification==2?View.GONE:View.VISIBLE}"
+                    android:text="作废"
+                    android:textSize="@dimen/sp_7" />
+
+                <Button
+                    android:id="@+id/bt_vipCard_delete"
+                    style="@style/ThemeButtonDelNormal"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:gravity="center"
+                    android:onClick="@{itemViewModel.delete}"
+                    android:text="删除"
+                    android:textSize="@dimen/sp_7" />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/bt_vipCard_select"
+                    style="@style/ThemeButtonNormal"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:gravity="center"
+                    android:text="选择"
+                    android:visibility="@{itemViewModel.obShowType==1?View.VISIBLE:View.GONE}"
+                    android:textSize="@dimen/sp_7" />
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:background="@color/text_light"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:id="@+id/iv_show_item"
+                    android:layout_width="@dimen/dp_8"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/arrow_down_grey"
+                    android:onClick="@{itemViewModel.clickOpenOrClose}"
+                    android:scaleType="fitCenter" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <include layout="@layout/line_h_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:viewCount="@{itemViewModel.viewCount}"
+            app:isClicked="@{itemViewModel.model.isClick}"
+            app:isVisible="@{itemViewModel.model.expand}"
+            tools:visibility="gone"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:textColor="@color/blue"
+                android:text="商品折扣："
+                android:textSize="@dimen/sp_7"/>
+
+            <include layout="@layout/line_h_normal" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_5"
+                app:goodsListTypeAdapterData="@{itemViewModel.model.cardDiscountList}"
+                app:isAddVipCard="@{itemViewModel.obIsIsAddVipCard}"
+                app:isInput="@{itemViewModel.obIsInput}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:textColor="@color/blue"
+                android:text="服务折扣："
+                android:textSize="@dimen/sp_7"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_5"
+                app:isAddVipCard="@{itemViewModel.obIsIsAddVipCard}"
+                app:isInput="@{itemViewModel.obIsInput}"
+                app:serviceListTypeAdapterData="@{itemViewModel.model.cardDiscountList2}" />
+
+            <include layout="@layout/line_h_normal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/dp_5"
+                    android:padding="@dimen/dp_2.5"
+                    android:background="@drawable/selector_blue_btn_bg"
+                    android:textColor="@color/white"
+                    android:text="持卡会员"
+                    android:onClick="@{itemViewModel.cardMembers}"
+                    android:visibility="@{itemViewModel.canSeeVip?View.VISIBLE:View.GONE}" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</layout>

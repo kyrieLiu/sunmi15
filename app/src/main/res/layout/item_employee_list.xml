@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ItemEmployeeListBinding">
+
+        <import type="java.util.List" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.manage.EmployeeListItemViewModel" />
+    </data>
+    <android.support.v7.widget.CardView
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="@dimen/dp_2.5"
+        app:cardElevation="@dimen/dp_2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@{itemViewModel.model.name}"
+                    android:textColor="@color/text_normal"
+                    android:textSize="@dimen/sp_8"
+                    tools:text="吕西施" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:text='@{@string/zkh+itemViewModel.model.post+@string/ykh}'
+                    android:textColor="@color/text_normal"
+                    tools:text="(店长)"
+                    android:textSize="@dimen/sp_7"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:gravity="center"
+                    android:text='@{itemViewModel.model.sex == 1 ? @string/nv:@string/nan}'
+                    android:textSize="@dimen/sp_7"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/text_normal"
+                    android:drawableLeft="@mipmap/xingbie"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    tools:text="女" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{itemViewModel.model.phone}"
+                    android:textSize="@dimen/sp_7"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/text_normal"
+                    android:drawableLeft="@mipmap/yuangongdianhua"
+                    android:drawablePadding="@dimen/dp_2.5"
+                    tools:text="18239900618" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:background="@color/blue">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text='@{@string/no+itemViewModel.model.jobNumber}'
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/sp_7"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    tools:text="NO:12" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:text='@{@string/cjsj+AppUtil.getTimes(itemViewModel.model.createTime)}'
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    tools:text="入职时间:2016-04-26" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>

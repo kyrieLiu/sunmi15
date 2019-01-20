@@ -1,0 +1,445 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data class="VipAppointmentBinding">
+            <variable
+                name="viewModel"
+                type="ys.app.pad.viewmodel.appointment.VipAppointmentModel"></variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:background="@color/bg">
+
+
+        <TextView
+            android:id="@+id/et_appointment_search"
+            style="@style/TCdarkTS13"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_16"
+            android:maxLines="1"
+            android:hint="会员名字/手机号"
+            android:paddingLeft="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/margin_200"
+            android:layout_marginRight="@dimen/margin_200"
+            android:layout_marginTop="@dimen/dp_2.5"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/dp_2.5"
+            android:drawableLeft="@mipmap/fangdajing"
+            android:background="@drawable/shape_login_input"
+            />
+        <LinearLayout
+            android:id="@+id/ll_addGoods_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dp_2.5"
+            android:layout_marginLeft="@dimen/margin_200"
+            android:layout_marginRight="@dimen/margin_200"
+            android:layout_below="@+id/et_appointment_search"
+            >
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:layout_marginRight="@dimen/iv_tv_padding"
+                    android:src="@mipmap/huiyuanxingming" />
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="会员姓名:" />
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:maxLines="1"
+                    android:paddingRight="@dimen/dp_11"
+                    android:text="@{viewModel.vipName}"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/text_hint"
+                ></View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:layout_marginLeft="@dimen/dp_11"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:src="@mipmap/jinjia" />
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="会员电话:" />
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:maxLines="1"
+                    android:paddingRight="@dimen/dp_11"
+                    android:text="@{viewModel.vipPhone}"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/text_hint"
+                ></View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:layout_marginLeft="@dimen/dp_11"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:src="@mipmap/huiyuanka" />
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="会员卡号:" />
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:maxLines="1"
+                    android:paddingRight="@dimen/dp_11"
+                    android:text="@{viewModel.vipCardNo}"
+                    />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_2.5"
+                android:background="@drawable/shape_login_input">
+
+                <ImageView
+                    android:id="@+id/iv_end"
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:src="@mipmap/chongwumingcheng"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv_appointment_end_title"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView18"
+                    android:layout_alignBottom="@+id/textView18"
+                    android:layout_toEndOf="@+id/iv_end"
+                    android:layout_toRightOf="@+id/iv_end"
+                    android:text="选择爱宠:" />
+
+
+                <TextView
+                    android:id="@+id/iv_appointment_end"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_11"
+                    android:onClick="@{()->viewModel.setPet()}"
+                    android:drawableRight="@mipmap/arrow_down"></TextView>
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_appointment_end"
+                    android:layout_toRightOf="@+id/tv_appointment_end_title"
+                    android:onClick="@{()->viewModel.setPet()}"
+                    android:gravity="right|center"
+                    android:text="@{viewModel.petName}"
+                    android:hint="请选择爱宠"
+                    android:id="@+id/textView18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_2.5"
+                android:background="@drawable/shape_login_input">
+
+                <ImageView
+                    android:id="@+id/iv_server"
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:src="@mipmap/fuwu"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv_appointment_server_title"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_toRightOf="@+id/iv_server"
+                    android:text="选择服务:" />
+
+
+                <TextView
+                    android:id="@+id/iv_appointment_server"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_11"
+                    android:onClick="@{()->viewModel.selectServer()}"
+                    android:drawableRight="@mipmap/arrow_down"></TextView>
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_appointment_server"
+                    android:layout_toRightOf="@+id/tv_appointment_server_title"
+                    android:hint="请选择服务类型"
+                    android:gravity="right|center"
+                    android:text="@{viewModel.server}"
+                    android:onClick="@{()->viewModel.selectServer()}"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_2.5"
+                android:background="@drawable/shape_login_input">
+
+                <ImageView
+                    android:id="@+id/iv_server_detail"
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:src="@mipmap/fuwu"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv_appointment_server_detail_title"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_toRightOf="@+id/iv_server_detail"
+                    android:text="服务事项:" />
+
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_11"
+                    android:layout_toRightOf="@+id/tv_appointment_server_detail_title"
+                    android:hint="请选择服务事项"
+                    android:text="@{viewModel.serverMatter}"
+                    android:gravity="right|center"
+                    android:onClick="@{()->viewModel.selectServerMatter()}"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_2.5"
+                android:background="@drawable/shape_login_input">
+
+                <ImageView
+                    android:id="@+id/iv_appointment_employee"
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:src="@mipmap/huiyuanxingming"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv_appointment_employee_title"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_toRightOf="@+id/iv_appointment_employee"
+                    android:text="选择员工:" />
+
+
+                <TextView
+                    android:id="@+id/tv_appointment_employee"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_11"
+                    android:onClick="@{()->viewModel.selectEmployee()}"
+                    android:drawableRight="@mipmap/arrow_down"></TextView>
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/tv_appointment_employee"
+                    android:layout_toRightOf="@+id/tv_appointment_employee_title"
+                    android:hint="请选择员工"
+                    android:text="@{viewModel.employeeName}"
+                    android:gravity="right|center"
+                    android:onClick="@{()->viewModel.selectEmployee()}"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_2.5"
+                android:background="@drawable/shape_login_input">
+
+                <ImageView
+                    android:id="@+id/iv_appointment"
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:src="@mipmap/shengchanriqi"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv_appointment_time_title"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_toRightOf="@+id/iv_appointment"
+                    android:text="预约日期:" />
+
+                <TextView
+                    android:id="@+id/iv_appointment_time"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_11"
+                    android:onClick="@{()->viewModel.selectAppointmentTime()}"
+                    android:drawableRight="@mipmap/arrow_down"></TextView>
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_appointment_time"
+                    android:layout_toRightOf="@+id/tv_appointment_time_title"
+                    android:hint="请选择预约时间"
+                    android:maxLength="10"
+                    android:text="@{viewModel.appointmentTime}"
+                    android:gravity="right|center"
+                    android:onClick="@{()->viewModel.selectAppointmentTime()}"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_2.5"
+                android:background="@drawable/shape_login_input">
+
+                <ImageView
+                    android:id="@+id/iv_appointment_day"
+                    android:layout_width="@dimen/dp_11"
+                    android:layout_height="@dimen/dp_11"
+                    android:src="@mipmap/shengchanriqi"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv_appointment_time_day_title"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_toRightOf="@+id/iv_appointment_day"
+                    android:text="当天时间:" />
+
+
+                <TextView
+                    android:id="@+id/iv_appointment_time_day"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_11"
+                    android:onClick="@{()->viewModel.selectFrameTime()}"
+                    android:drawableRight="@mipmap/arrow_down"></TextView>
+
+                <TextView
+                    style="@style/TCBlackTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_appointment_time_day"
+                    android:layout_toRightOf="@+id/tv_appointment_time_day_title"
+                    android:hint="请选择当天时间"
+                    android:text="@{viewModel.frameTime}"
+                    android:gravity="right|center"
+                    android:onClick="@{()->viewModel.selectFrameTime()}"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_16"
+            android:text="确认预约"
+            android:background="@drawable/selector_press_button_color"
+            android:textColor="@color/white"
+            android:onClick="@{()->viewModel.confirmAppointment()}"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/back" android:state_pressed="false"/>
+    <item android:drawable="@mipmap/back_grey_select" android:state_pressed="true"/>
+</selector>

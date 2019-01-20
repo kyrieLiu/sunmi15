@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityRefundVipBinding">
+        <import type="android.view.View"></import>
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.vip.RefundVipViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_33"
+            android:layout_below="@+id/view" />
+
+
+        <Button
+            android:id="@+id/bt_refund_confirm"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:layout_height="@dimen/dp_19"
+            android:background="@drawable/selector_red_2_btn_bg"
+            android:layout_alignParentBottom="true"
+            android:text="退卡"
+            android:textSize="@dimen/sp_6_5"
+            android:onClick="@{()->viewModel.clickRefund()}"
+            android:textColor="@color/white"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:layout_above="@+id/bt_refund_confirm"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/dp_2.5"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_22"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_login"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="会员金额 :   "
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_centerVertical="true"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
+                    android:layout_centerVertical="true"
+                    android:hint="请输入退款金额"
+                    android:textSize="@dimen/sp_6_5"
+                    android:text="@={viewModel.refundMoney}"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_19"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_login_input"
+                android:onClick="@{()->viewModel.selectEmployee()}"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tv0"
+                    style="@style/TCdarkTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:text="退卡员工   :    "
+                    android:textSize="@dimen/sp_6_5" />
+
+
+                <ImageView
+                    android:id="@+id/select_iv0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/arrow_down" />
+
+                <TextView
+                    style="@style/TCdarkTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/select_iv0"
+                    android:layout_toRightOf="@+id/tv0"
+                    android:background="@null"
+                    android:hint="请选择员工"
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:text="@{viewModel.employeeName}"
+                    />
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="参考公式"
+                android:textSize="@dimen/sp_6_5"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="实际充值"
+                        android:textSize="@dimen/sp_6_5"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:textSize="@dimen/sp_6_5"
+                        android:background="@color/text_dark" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="实际充值 + 赠送金额"
+                        android:textSize="@dimen/sp_6_5"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" * "
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="剩余金额"
+                    android:textSize="@dimen/sp_6_5"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" = "
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="退款金额"
+                    android:textSize="@dimen/sp_6_5"
+                    />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/dp_11"
+                android:background="@color/black"
+                android:visibility="@{viewModel.isNoneDataVisible?View.GONE:View.VISIBLE}"></View>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="建议退款金额"
+                android:textSize="@dimen/sp_6_5"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                />
+            <TextView
+                android:id="@+id/tv_refund_zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0元"
+                android:textColor="@color/text_money"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:textSize="@dimen/sp_6_5"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isNoneDataVisible?View.GONE:View.VISIBLE}">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="实际充值"
+                        android:textSize="@dimen/sp_6_5"
+                        android:text="@{viewModel.realMoney}"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/text_dark" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="实际充值 + 赠送金额"
+                        android:textSize="@dimen/sp_6_5"
+                        android:text="@{viewModel.presentAndRealMoney}"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" * "
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="剩余金额"
+                    android:textSize="@dimen/sp_6_5"
+                    android:text="@{viewModel.nowMoney}"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" = "
+                    android:textSize="@dimen/sp_6_5"
+                    android:layout_marginLeft="@dimen/dp_2.5"
+                    android:layout_marginRight="@dimen/dp_2.5"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="退款金额"
+                    android:textSize="@dimen/sp_6_5"
+                    android:text="@{viewModel.resultMoney}"
+                    android:textColor="@color/text_money"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</layout>

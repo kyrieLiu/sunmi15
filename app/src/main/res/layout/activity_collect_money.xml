@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityCollectMoneyBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.CollectMoneyViewModel" />
+    </data>
+
+    <com.flipboard.bottomsheet.BottomSheetLayout
+        android:id="@+id/bottomSheetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/status_bar_height"
+                android:background="@color/white" />
+
+            <include
+                android:id="@+id/layout_head"
+                layout="@layout/tool_bar_pad"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_below="@+id/view" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/layout_head"
+                android:orientation="horizontal">
+
+                <ScrollView
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:background="@color/black">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@mipmap/menu_top_logo" />
+
+
+                        <LinearLayout
+                            android:id="@+id/rl_collectMoney_goods_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_collect_money_goods"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="商品"
+                                android:textColor="@color/color_main"
+                                android:textSize="@dimen/sp_9" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/arrow_down_blue"
+                                android:visibility="@{viewModel.showNavigateGoods?View.VISIBLE:View.GONE}" />
+
+                        </LinearLayout>
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_collectMoney_trade"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="@{viewModel.showNavigateGoods?View.VISIBLE:View.GONE}">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.7dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/color_main"></View>
+
+
+                        <LinearLayout
+                            android:id="@+id/rl_collectMoney_service_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_collect_money_service"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="服务"
+                                android:textColor="@color/color_main"
+                                android:textSize="@dimen/sp_9"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/arrow_down_blue"
+                                android:visibility="@{viewModel.showNavigateService?View.VISIBLE:View.GONE}" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_collectMoney_service"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="@{viewModel.showNavigateService?View.VISIBLE:View.GONE}">
+
+                            </android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_collectMoney_num_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:visibility="gone">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true">
+
+                                <ImageView
+                                    android:id="@+id/iv_collectMoney_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/chukushuliang_m" />
+
+                                <TextView
+                                    android:id="@+id/tv_collect_money_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/iv_collectMoney_num"
+                                    android:text="次卡"
+                                    android:textColor="@color/color_main"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_39"
+                        android:layout_alignParentBottom="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_34"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/black"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_45"
+                                android:text="合计 :"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/sp_9" />
+
+                            <TextView
+                                android:id="@+id/money_tv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="3dp"
+                                android:layout_weight="1"
+                                android:text="0.00"
+                                android:textColor="@color/text_money"
+                                android:textSize="@dimen/sp_11" />
+
+                            <Button
+                                android:id="@+id/ok_btn"
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:background="@mipmap/jiesuan"
+                                android:gravity="center"
+                                android:onClick="@{viewModel.clickButton}"
+                                android:text="确认结账"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/sp_9" />
+
+                            <Button
+                                android:id="@+id/guadan_btn"
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:background="#FFFF9800"
+                                android:gravity="center"
+                                android:onClick="@{viewModel.clicGuadanButton}"
+                                android:text="挂单"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/sp_9" />
+
+                            <Button
+                                android:id="@+id/qudan_btn"
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:background="#FF0d76e5"
+                                android:gravity="center"
+                                android:onClick="@{viewModel.clickOrder}"
+                                android:text="取单"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/sp_9" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/ll_shopcar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp">
+
+                            <ImageView
+                                android:id="@+id/tv_car"
+                                android:layout_width="@dimen/dp_39"
+                                android:layout_height="@dimen/dp_39"
+                                android:layout_gravity="center"
+                                android:background="@mipmap/tuoyuan"
+                                android:scaleType="center"
+                                android:src="@mipmap/bg_shopcar" />
+
+                            <TextView
+                                android:id="@+id/bv_unm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignRight="@+id/tv_car"
+                                android:background="@drawable/shape_shopcar_data"
+                                android:gravity="center"
+                                android:singleLine="true"
+                                android:text="12"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_6"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/rl_bottom"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.9"
+                            android:background="@color/bg">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="@{viewModel.showView==3?View.VISIBLE:View.GONE}">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp">
+
+                                    <TextView
+                                        android:id="@+id/tv_service_num_select"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/shape_login_input"
+                                        android:onClick="@{()->viewModel.showCardList()}"
+                                        android:paddingLeft="3dp"
+                                        android:paddingRight="3dp"
+                                        android:textSize="@dimen/sp_6_5"
+                                        android:text="次卡列表" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_service_num_select"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_toRightOf="@+id/tv_service_num_select"
+                                        android:src="@mipmap/change" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="@{viewModel.cardName}"
+                                        android:textSize="@dimen/sp_6_5"
+                                        android:visibility="@{viewModel.showCard?View.GONE:View.VISIBLE}" />
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@color/bg">
+
+                                    <FrameLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <ys.app.pad.widget.wrapperRecylerView.IRecyclerView
+                                            android:id="@+id/rv_num_card_list"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:scrollbars="vertical"
+                                            android:fadeScrollbars="true"
+                                            android:visibility="@{viewModel.showCard?View.VISIBLE:View.GONE}"
+                                            app:refreshEnabled="true"
+                                            app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header" />
+
+                                        <ys.app.pad.widget.wrapperRecylerView.IRecyclerView
+                                            android:id="@+id/rv_num_service_list"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:visibility="@{viewModel.showCard?View.GONE:View.VISIBLE}"
+                                            app:refreshEnabled="true"
+                                            app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header" />
+                                    </FrameLayout>
+                                </RelativeLayout>
+                            </LinearLayout>
+
+
+                            <ys.app.pad.widget.wrapperRecylerView.IRecyclerView
+                                android:id="@+id/recyclerView_service"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="@{viewModel.showView==2?View.VISIBLE:View.GONE}"
+                                app:loadMoreEnabled="true"
+                                app:loadMoreFooterLayout="@layout/layout_irecyclerview_footer"
+                                app:refreshEnabled="true"
+                                app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header" />
+
+                            <ys.app.pad.widget.wrapperRecylerView.IRecyclerView
+                                android:id="@+id/recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="@{viewModel.showView==1?View.VISIBLE:View.GONE}"
+                                app:loadMoreEnabled="true"
+                                app:loadMoreFooterLayout="@layout/layout_irecyclerview_footer"
+                                app:refreshEnabled="true"
+                                app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header" />
+
+                            <ImageView
+                                android:id="@+id/noneDataIv"
+                                style="@style/NoneDataIv"
+                                android:src="@mipmap/none_data"
+                                android:visibility="@{viewModel.isNoneDataVisible?View.VISIBLE:View.GONE}" />
+
+                            <ImageView
+                                android:id="@+id/networkErrorIv"
+                                style="@style/NetworkErrorIv"
+                                android:onClick="@{viewModel.onClickNetWorkError}"
+                                android:src="@mipmap/network_error"
+                                android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:visibility="@{viewModel.isLoadingVisible?View.VISIBLE:View.GONE}">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@mipmap/yyp" />
+
+                                <ProgressBar
+                                    android:id="@+id/progressbar"
+                                    style="@style/RequestProgressStyle"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_centerInParent="true" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_29"
+                                android:orientation="horizontal">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <Button
+                                        android:id="@+id/bt_collect_vip"
+                                        style="@style/CollectMenuButton"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginLeft="15dp"
+                                        android:background="@{viewModel.vipType==1?@drawable/shape_button_normal:@drawable/shape_b_input}"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.selectVipUser()}"
+                                        android:text="会员"
+                                        android:textColor="@{viewModel.vipType==1?@color/white:@color/selector_press_button_text_color}"></Button>
+
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <Button
+                                        style="@style/CollectMenuButton"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginLeft="15dp"
+                                        android:background="@{viewModel.vipType==2?@drawable/shape_button_normal:@drawable/shape_b_input}"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.selectNumCardVip()}"
+                                        android:text="次卡"
+                                        android:textColor="@{viewModel.vipType==2?@color/white:@color/selector_press_button_text_color}"></Button>
+
+                                </RelativeLayout>
+
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <Button
+                                        android:id="@+id/bt_collect_normal"
+                                        style="@style/CollectMenuButton"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginLeft="15dp"
+                                        android:background="@{viewModel.vipType==3?@drawable/shape_button_normal:@drawable/shape_b_input}"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.selectNormalUser()}"
+                                        android:text="非会员"
+                                        android:textColor="@{viewModel.vipType==3?@color/white:@color/selector_press_button_text_color}"></Button>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <Button
+                                        style="@style/CollectMenuButton"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginLeft="15dp"
+                                        android:background="@{viewModel.vipType==4?@drawable/shape_button_normal:@drawable/shape_b_input}"
+                                        android:gravity="center"
+                                        android:onClick="@{()->viewModel.selectOnlyDiscount()}"
+                                        android:text="折扣卡"
+                                        android:textColor="@{viewModel.vipType==4?@color/white:@color/selector_press_button_text_color}"></Button>
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="7dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:visibility="@{viewModel.vipType==3?View.GONE:View.VISIBLE}">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/tv_collect_vip_name"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="会员:"
+                                            android:textSize="@dimen/sp_6_5"
+                                            android:textColor="@color/color_main" />
+
+                                        <TextView
+                                            android:id="@+id/tv_collect_vip_phone"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textSize="@dimen/sp_6_5"
+                                            android:text="电话:" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/tv_collect_vip_card_name"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textSize="@dimen/sp_6_5"
+                                            android:text="卡片名称:" />
+
+                                        <TextView
+                                            android:id="@+id/tv_collect_vip_card_type"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textSize="@dimen/sp_6_5"
+                                            android:text="卡片类型:" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_collect_vip_money"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:textSize="@dimen/sp_6_5"
+                                        android:text="当前余额:" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_36"
+                                    android:orientation="vertical"
+                                    android:visibility="@{viewModel.vipType==3?View.VISIBLE:View.GONE}">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/shape_login_input"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:drawableLeft="@mipmap/dangqianyue"
+                                            android:drawablePadding="5dp"
+                                            android:gravity="center_vertical"
+                                            android:paddingLeft="5dp"
+                                            android:text="非会员姓名   : "
+                                            android:textSize="@dimen/sp_6_5" />
+
+
+                                        <EditText
+                                            android:id="@+id/et_collect_normal_name"
+                                            style="@style/TCdarkTS13"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@null"
+                                            android:gravity="center_vertical"
+                                            android:hint="请输入非会员姓名"
+                                            android:maxLines="1"
+                                            android:textSize="@dimen/sp_6_5" />
+                                        />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/shape_login_input"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:drawableLeft="@mipmap/candanfuwub"
+                                            android:drawablePadding="10dp"
+                                            android:paddingLeft="5dp"
+                                            android:text="非会员手机号: "
+                                            android:textSize="@dimen/sp_6_5" />
+
+
+                                        <EditText
+                                            android:id="@+id/et_collect_normal_phone"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@null"
+                                            android:gravity="center_vertical"
+                                            android:hint="请输入非会员手机号"
+                                            android:maxLines="1"
+                                            android:textSize="@dimen/sp_6_5" />
+                                        />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/shape_login_input"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp"
+                                android:text="搜索"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:background="@color/blue"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="2.2"
+                                        android:gravity="center"
+                                        android:text="名称"
+                                        android:textSize="@dimen/sp_7_5"
+                                        android:textColor="@color/white" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="数量"
+                                        android:textSize="@dimen/sp_7_5"
+                                        android:textColor="@color/white" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="单价"
+                                        android:textSize="@dimen/sp_7_5"
+                                        android:textColor="@color/white" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="业绩"
+                                        android:textSize="@dimen/sp_7_5"
+                                        android:textColor="@color/white" />
+                                </LinearLayout>
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/rv_collectMoney_shopCar"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_collectMoney_guide"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="#b2000000"
+                                        android:orientation="vertical"
+                                        android:visibility="gone">
+
+                                        <ImageView
+                                            android:id="@+id/iv_collectMoney_arrow"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="right"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginTop="20dp"
+                                            android:src="@mipmap/right" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="10dp"
+                                            android:text="左滑可以对商品进行赠送和删除"
+                                            android:textColor="@color/white" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="10dp"
+                                            android:background="@drawable/stroke_white_bg"
+                                            android:padding="5dp"
+                                            android:text="我知道了"
+                                            android:textColor="@color/white" />
+                                    </LinearLayout>
+                                </FrameLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </com.flipboard.bottomsheet.BottomSheetLayout>
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <integer name="name_limit">10</integer>
+   <integer name="price_limit">8</integer>
+   <integer name="bar_code_limit">27</integer>
+   <integer name="num_limit">8</integer>
+</resources>

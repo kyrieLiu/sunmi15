@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="VipPetListBinding">
+
+        <import type="ys.app.pad.utils.AppUtil" />
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.itemmodel.VipPetItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_11"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_22"
+            >
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawablePadding="@dimen/dp_2.5"
+                android:text="@{itemViewModel.vipName}"
+                android:textSize="@dimen/sp_6_5"/>
+
+            <Button
+                android:layout_width="@dimen/dp_28"
+                android:layout_height="@dimen/dp_11"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_5"
+                android:text="详情"
+                android:gravity="center"
+                android:textColor="@color/color_main"
+                android:background="@drawable/selector_press_button_empty"
+                android:onClick="@{()->itemViewModel.clickDetail()}"
+                android:textSize="@dimen/sp_6_5" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/line_h_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:vipPetAdapterData="@{itemViewModel.model.petList}" />
+
+            <include layout="@layout/line_h_normal" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

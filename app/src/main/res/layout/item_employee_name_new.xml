@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemEmployeeNameNewBinding">
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.manage.EmployeeNameNewItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginLeft="@dimen/dp_11"
+        android:layout_marginRight="@dimen/dp_11"
+        >
+
+        <TextView
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:background="@drawable/shape_circle_blue"
+            android:onClick="@{itemViewModel.onClickButton}"
+            android:text="@{itemViewModel.model.name}"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_8" />
+
+        <ImageView
+            android:id="@+id/iv_item_achivement_employee"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/employee_man"
+            />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemServiceTypeInVipBinding">
+
+        <import type="android.view.View" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.ServiceTypeInVipItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginRight="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_2.5"
+        android:background="@drawable/shape_login_input">
+
+
+        <me.biubiubiu.justifytext.library.JustifyTextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:ems="4"
+            android:gravity="right"
+            android:minWidth="@dimen/dp_9"
+            android:textColor="@color/text_normal"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:text="@{itemViewModel.mIsAddVipCard?itemViewModel.model.name:itemViewModel.model.classifyName}"
+            tools:text="主粮系列"
+            android:textSize="@dimen/sp_6_5"/>
+        <TextView
+            android:id="@+id/sign_mao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/name_tv"
+            android:textColor="@color/text_normal"
+            android:text="："
+            android:textSize="@dimen/sp_6_5"/>
+        <EditText
+            android:id="@+id/zhekou_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/sign_mao"
+            android:layout_toLeftOf="@+id/zhe_tv"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:background="@null"
+            android:gravity="center|left"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"
+            android:maxLength="2"
+            android:text="@={itemViewModel.obServiceCost}"
+            app:background="@{itemViewModel.editTextEditable}"
+            app:onTextChangedListener="@{itemViewModel.textChangeListener}"
+            app:editTextEditable="@{itemViewModel.editTextEditable}"
+            tools:text="98"
+            android:textSize="@dimen/sp_6"/>
+
+        <TextView
+            android:id="@+id/zhe_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_5"
+            android:textColor="@color/text_normal"
+            android:text="@string/zhe"
+            android:textSize="@dimen/sp_6_5"/>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemOrder2Binding">
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.Order2ItemViewModel" />
+
+        <import type="ys.app.pad.utils.DateUtil" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF2F2F2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/parent_ll"
+            style="@style/ThemePressBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{itemViewModel.clickOpenOrClose}"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/tv_item_order_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_or_margin"
+                    android:layout_centerVertical="true"
+                    android:text="@{DateUtil.longFormatDate3(itemViewModel.model.orderTime)}"
+                    android:textSize="12sp"
+                    tools:text="2017-04-25   22:27:36" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_item_order_time"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:textColor="@color/color_main"
+                    android:text="@{itemViewModel.model.vipUserId>0?@string/vipName+itemViewModel.model.vipName:@string/normalCustom}"
+                    android:textSize="12sp"
+                    tools:text="会员: " />
+                <Button
+                    style="@style/ThemeButtonNormal"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/selector_press_button_text_color"
+                    android:onClick="@{itemViewModel.clickDeleteButton}"
+                    android:text="删除"
+                    android:textSize="12sp"
+                    tools:text="删除" />
+            </RelativeLayout>
+            <View android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_divide_normal"/>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+               >
+                <TextView
+                    android:id="@+id/tv_qudan_orderNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="订单编号:  "
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv_qudan_orderNo"
+                    android:text="@{itemViewModel.model.orderNo}"
+                    />
+
+
+                <TextView
+                    android:id="@+id/num_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text='@{itemViewModel.model.orderDetailedList.size()+``}'
+                    android:textSize="13sp"
+                    tools:text="5件" />
+
+                <Button
+                    android:id="@+id/take_off_tv"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/selector_blue_btn_bg"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/text_white"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{itemViewModel.clickPay}"
+                    android:text="取单"
+                    android:textSize="12sp"
+                    tools:text="取单" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/take_off_tv"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:text='@{@string/fuhao+AppUtil.formatStandardMoney(itemViewModel.model.realAmt)}'
+                    android:textColor="@color/text_money"
+                    tools:text="¥ 50"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            app:count="@{itemViewModel.model.orderDetailedList.size()}"
+            app:isClick="@{itemViewModel.model.isClick}"
+            app:isVis="@{itemViewModel.model.expand}"
+            tools:visibility="gone">
+            <!--android:visibility="@{itemViewModel.model.expand?View.VISIBLE:View.GONE}"-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_child_up_line" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="已选商品/服务"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dash_line"
+                android:layerType="software" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/child_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:adapterData="@{itemViewModel.model.orderDetailedList}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_child_down_line" />
+        </LinearLayout>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:background="@color/line_divide_normal"/>
+    </LinearLayout>
+</layout>

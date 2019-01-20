@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityPayBinding">
+        <import type="android.view.View"></import>
+        <import type="ys.app.pad.utils.AppUtil"/>
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.vip.PayViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            layout="@layout/tool_bar" />
+        <Button
+            android:id="@+id/bt_pay"
+            style="@style/ButtonNormalAlignBottomEnableFull"
+            android:onClick="@{viewModel.clickButton}"
+            android:enabled="@{viewModel.obButtonEnable}"
+            android:text="结算" />
+        <ScrollView
+            android:layout_below="@+id/tool_bar"
+            android:layout_above="@+id/bt_pay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_or_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    style="@style/TCNormalTS14"
+                    android:gravity="center_vertical"
+                    android:text="充值信息" />
+
+                <!--<inclactivity_vice_chargeyouactivity_vice_chargeyout/line_h_normal" />-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv0"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/huiyuanxingming" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.mChargeInfo.name}"
+                        style="@style/TCNormalTS14" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView2"
+                        android:layout_alignBottom="@+id/textView2"
+                        android:layout_toEndOf="@+id/iv0"
+                        android:layout_toRightOf="@+id/iv0"
+                        android:text="会员姓名"
+                        style="@style/TCNormalTS14" />
+                </RelativeLayout>
+
+                <!--<inclactivity_vice_chargeyouactivity_vice_chargeyout/line_h_normal" />-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/padding_or_margin"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv1"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/huiyuanxingming" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv1"
+                        android:text="会员电话"
+                        style="@style/TCNormalTS14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.mChargeInfo.phone}"
+                        style="@style/TCNormalTS14" />
+                </RelativeLayout>
+
+                <!--<inclactivity_vice_chargeyouactivity_vice_chargeyout/line_h_normal" />-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/padding_or_margin"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv2"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/huiyuanka" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv2"
+                        android:text="会员卡号"
+                        style="@style/TCNormalTS14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.mChargeInfo.cardNo}"
+                        style="@style/TCNormalTS14" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/padding_or_margin"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv3"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/chongzhijine" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv3"
+                        android:text="充值金额"
+                        style="@style/TCNormalTS14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text='@{AppUtil.formatStandardMoney(viewModel.mChargeInfo.chargeMoney)+@string/yuan}'
+                        style="@style/TCBlueTS14" />
+                </RelativeLayout>
+                <!--<inclactivity_vice_chargeyouactivity_vice_chargeyout/line_h_normal" />-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:visibility="@{viewModel.seePresenter?View.VISIBLE:View.GONE}"
+                    android:layout_marginTop="@dimen/padding_or_margin"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv_presenter_amt"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/chongzhijine" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_presenter_amt"
+                        android:text="赠送金额"
+                        style="@style/TCNormalTS14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text='@{AppUtil.formatStandardMoney(viewModel.mChargeInfo.presentAmt)+@string/yuan}'
+                        style="@style/TCBlueTS14" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/line_divide_normal"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/padding_or_margin"
+                    android:background="@drawable/shape_login_input">
+
+                    <ImageView
+                        android:id="@+id/iv4"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/dangqianyue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv4"
+                        android:text="当前余额"
+                        style="@style/TCNormalTS14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text='@{AppUtil.formatStandardMoney(viewModel.mChargeInfo.money)+@string/yuan}'
+                        style="@style/TCBlueTS14" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1.1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_or_margin"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_normal"
+                        android:text="线上支付"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@color/devide"
+                        android:layerType="software"></View>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:padding="5dp"
+                            android:background="@{viewModel.payType==0?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickWeixinPay}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/weixinzhifu" />
+
+                            <TextView
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:text="微信支付" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@{viewModel.payType==1?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickZhifubaoPay}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/zhifubao" />
+
+                            <TextView
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:text="支付宝" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@{viewModel.payType==4?@drawable/xuanzhong:@drawable/shape_login_input}"
+                        android:gravity="center_vertical"
+                        android:onClick="@{viewModel.clickWeixinScannerPay}"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@mipmap/weixins_scanner" />
+
+                        <TextView
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:text="微信收款" />
+                    </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@{viewModel.payType==5?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickZhifubaoScannerPay}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/lansesaomiao" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="支付宝收款" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_normal"
+                        android:text="线下支付"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="10dp"
+                        android:background="@color/devide"
+                        android:layerType="software"></View>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@{viewModel.payType==2?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickXinhangkaPay}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/yinhangka" />
+
+                            <TextView
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:text="银行卡" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@{viewModel.payType==3?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickXianjinPay}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/xianjin" />
+
+                            <TextView
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:text="现金支付" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@{viewModel.payType==6?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickBossWeixin}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/weixinzhifu" />
+
+                            <TextView
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:text="个人微信" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@{viewModel.payType==7?@drawable/xuanzhong:@drawable/shape_login_input}"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel.clickBossZhifubao}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@mipmap/zhifubao" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="3dp"
+                                android:text="个人支付宝" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"></RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/line_divide_normal">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/view" />
+
+
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_function_introduction"
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_marginTop="10dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>

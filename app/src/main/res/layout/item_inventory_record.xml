@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="InventoryRecordItemBinding">
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.inventory.InventoryRecordItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_2.5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text='@{itemViewModel.model.commodityName}'
+            android:textSize="@dimen/sp_7"
+            tools:text="狗粮A" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text='@{@string/rmb+itemViewModel.model.commodityAmt}'
+            android:textSize="@dimen/sp_7"
+            tools:text="￥100元" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@{String.valueOf(itemViewModel.model.inventoryNum-itemViewModel.model.stockNum)}"
+            android:textSize="@dimen/sp_7"
+            tools:text="-1" />
+
+    </LinearLayout>
+</layout>

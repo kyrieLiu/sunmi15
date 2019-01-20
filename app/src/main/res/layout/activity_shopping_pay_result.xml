@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityShoppingPayResultBinding">
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.ShoppingPayResultViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view"
+            layout="@layout/tool_bar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tool_bar"
+            android:visibility="@{viewModel.obIsPaySuccess?View.VISIBLE:View.GONE}">
+
+            <LinearLayout
+                android:id="@+id/up_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="18sp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+                    <!--app:imgSrc="@{viewModel.obSelectPayResultImg}"-->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/chongzhichenggong" />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="支付成功" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/up_ll"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/rl_shopping_pay_money"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="交易金额" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text='@{viewModel.obSelectPayMoney+@string/yuan}'
+                        android:textColor="@color/text_money" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="支付方式" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.obSelectPayType}" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_h_normal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="交易单号" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@{viewModel.obSelectOrderNo}" />
+                </RelativeLayout>
+
+                <!--<inclactivity_vice_chargeyouactivity_vice_chargeyout/line_h_normal" />-->
+
+                <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp">-->
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:text="会员卡余额" />-->
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:text="0.00元"-->
+                <!--android:textColor="@color/text_money" />-->
+                <!--</RelativeLayout>-->
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fail_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:background="@color/bg"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.obIsPaySuccess?View.GONE:View.VISIBLE}"
+            tools:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/color_main">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawablePadding="25dp"
+                    android:drawableTop="@mipmap/shibai"
+                    android:text="非常抱歉, 支付未成功"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="15dp"
+                android:text="您的支付未完成,您可以挂单后重新支付,也可以取消支付,取消支付后再次购买需要重新下单" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="失败可能原因"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="1: 网络信号不好"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="2: 接口处理异常"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="(建议您稍后再进行尝试)"
+                    android:textColor="@color/text_light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/shape_login_input"-->
+        <!--android:onClick="@{viewModel.clickLeftButton}"-->
+        <!--android:text='@{viewModel.obIsPaySuccess?@string/bdxp:@string/qx}'-->
+        <!--android:textColor="@color/color_main"-->
+        <!--android:textSize="@dimen/text_button_size" />-->
+
+        <!--<Button-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/shape_button_normal"-->
+        <!--android:onClick="@{viewModel.clickRightButton}"-->
+        <!--android:text='@{viewModel.obIsPaySuccess?@string/qd:@string/gd}'-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="@dimen/text_button_size" />-->
+        <!--</LinearLayout>-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/ThemePressLeftBg"
+                android:onClick="@{viewModel.clickLeftButton}"
+                android:text='@{viewModel.obIsPaySuccess?@string/bdxp:@string/qx}'
+                tools:text="补打小票" />
+
+            <Button
+                style="@style/ThemePressRightBg"
+                android:onClick="@{viewModel.clickRightButton}"
+                android:text='@{viewModel.obIsPaySuccess?@string/qd:@string/gd}'
+                tools:text="确定" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/networkErrorIv"
+            style="@style/NetworkErrorIv"
+            android:layout_below="@id/tool_bar"
+            android:onClick="@{viewModel.onClickNetWorkError}"
+            android:src="@mipmap/network_error"
+            android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}"
+            tools:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tool_bar"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/bg"
+            android:visibility="@{viewModel.isLoadingVisible?View.VISIBLE:View.GONE}"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/yyp" />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/RequestProgressStyle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_below="@+id/tool_bar"-->
+            <!--android:background="@color/bg"-->
+            <!--android:gravity="center"-->
+            <!--android:text="获取订单出错"-->
+            <!--android:textColor="#8a8a8a"-->
+            <!--android:visibility="@{viewModel.isOrderErrorVisible?View.VISIBLE:View.GONE}"-->
+            <!--tools:visibility="gone" />-->
+
+    </RelativeLayout>
+</layout>

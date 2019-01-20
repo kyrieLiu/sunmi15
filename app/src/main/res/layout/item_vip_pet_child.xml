@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ItemVipPetChildBinding">
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/ll_item_vip_pet_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_2.5"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_item_vip_pet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_main"
+            android:layout_marginBottom="@dimen/dp_2.5"
+            android:text="宠物名称 : "
+            android:textSize="@dimen/sp_6_5"/>
+
+
+        <TextView
+            android:id="@+id/tv_item_vip_pet_undoneBrithday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp_6_5"
+             />
+        <TextView
+            android:id="@+id/tv_item_vip_pet_undoneInsect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp_6_5"
+             />
+        <TextView
+            android:id="@+id/tv_item_vip_pet_undoneInsectOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp_6_5"
+           />
+        <TextView
+            android:id="@+id/tv_item_vip_pet_undoneVaccine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp_6_5"
+            />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_divide_normal"
+            android:layout_marginTop="@dimen/dp_2.5"
+            android:layout_below="@+id/ll_item_vip_pet_content"
+            />
+
+    </RelativeLayout>
+
+
+</layout>

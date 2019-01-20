@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemServiceBinding">
+
+        <import type="android.view.View" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.ServiceItemViewModel" />
+    </data>
+
+
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_2.5"
+        android:background="@drawable/shape_blue_gradient"
+        android:clipChildren="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="@{itemViewModel.model.name}"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_4"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_6_5"
+            tools:text="商品名称商品名称商品名称商品名称商品名称商品名称商品名称" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_2.5"
+            android:layout_marginRight="@dimen/dp_2.5"
+            android:layout_marginTop="@dimen/dp_5"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}"
+            >
+            <TextView
+                android:id="@+id/tv_item_good_discountNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#e79449"
+                android:paddingBottom="@dimen/dp_1"
+                android:paddingLeft="@dimen/dp_2.5"
+                android:paddingRight="@dimen/dp_2.5"
+                android:paddingTop="@dimen/dp_1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_6_5"
+                android:layout_centerVertical="true"
+                tools:text="6折"
+                android:text="@{itemViewModel.model.promotionType==2? @string/lijian:AppUtil.discountShow(itemViewModel.model.promotionNum)+@string/zhe}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:background="#e79449"
+                android:paddingBottom="@dimen/dp_1"
+                android:paddingLeft="@dimen/dp_2.5"
+                android:paddingRight="@dimen/dp_2.5"
+                android:paddingTop="@dimen/dp_1"
+                android:text="折上折"
+                android:layout_toRightOf="@+id/tv_item_good_discountNum"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_6_5"
+                android:layout_centerVertical="true"
+                android:visibility="@{itemViewModel.model.isFold == 1? (itemViewModel.model.isPromotion==1 ? View.VISIBLE :View.GONE):View.GONE}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/discount_price+itemViewModel.promotionPrice}"
+                android:textColor="#fad369"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:textSize="@dimen/sp_8"
+                tools:text="折扣价: 30.0" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_2"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_5"
+            >
+            <TextView
+                android:id="@+id/tv_item_promotion_goods_vipPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fad369"
+                android:textSize="@dimen/sp_8"
+                android:text='@{@string/vip_price+AppUtil.formatStandardMoney(itemViewModel.model.vipAmt)}'
+                tools:text="会员价: ¥30.0" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="原价: "
+                    android:textColor="@{itemViewModel.model.isPromotion==1?@color/text_light:@color/faint_yellow}"
+                    />
+                <TextView
+                    android:id="@+id/tv_item_promotion_goods_originalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="@{itemViewModel.model.isPromotion==1?@color/text_light:@color/faint_yellow}"
+                    android:background="@{itemViewModel.model.isPromotion==1?@drawable/shape_line_light:@drawable/shape_transparent}"
+                    android:paddingLeft="@dimen/dp_2"
+                    android:paddingRight="@dimen/dp_2"
+                    android:text='@{@string/rmb+AppUtil.formatStandardMoney(itemViewModel.model.realAmt)}'
+                    android:textSize="@dimen/sp_7_5" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_promotion_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="@{itemViewModel.model.isPromotion==1?View.VISIBLE:View.GONE}">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_1"
+                android:layout_marginBottom="@dimen/dp_1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="促销: "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_7_5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{AppUtil.longToStandardTime(itemViewModel.model.beginTime)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_7_5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_1"
+                    android:text="～"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_7_5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_1"
+                    android:text="@{AppUtil.longToStandardTime(itemViewModel.model.endTime)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_7_5" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_parent_promotion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ll_promotion_time"
+            android:orientation="vertical">
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#cccccc" />
+
+            <TextView
+                android:id="@+id/promotion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:onClick="@{() -> itemViewModel.promotionClick()}"
+                android:padding="5dp"
+                android:text='@{itemViewModel.promotionSetting ? (itemViewModel.model.isPromotion==1?@string/rjrxc:@string/jrxc):@string/jrxc}'
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                tools:text="加入促销" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header_layout"
+        layout="@layout/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/padding_or_margin"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/ll_card_magnetic"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_card_magnetic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@drawable/selector_title_left"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:text="磁条卡"
+                    />
+                <ImageView
+                    android:id="@+id/iv_card_magnetic"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/selector_select_dialog_icon"
+                    android:visibility="gone"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_card_nfc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_card_nfc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@drawable/selector_title_right"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:text="NFC卡"
+                    />
+                <ImageView
+                    android:id="@+id/iv_card_nfc"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/selector_select_dialog_icon"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/fl_nfc_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
+
+    </LinearLayout>
+</LinearLayout>

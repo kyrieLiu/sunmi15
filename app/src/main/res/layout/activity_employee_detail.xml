@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityEmployeeDetailBinding">
+
+        <import type="android.view.View" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.EmployeeDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginLeft="@dimen/margin_200"
+            android:layout_marginRight="@dimen/margin_200"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/TCNormalTS14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@mipmap/yuangongxingming"
+                    android:drawablePadding="9dp"
+                    android:text="员工姓名" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView10"
+                    android:layout_alignBottom="@+id/textView10"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginRight="11dp"
+                    android:text="@{viewModel.mInfo.name}"
+                    style="@style/TCNormalTS14"
+                    tools:text="员工姓名" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="员工性别"
+                    android:drawableLeft="@mipmap/xingbie"
+                    android:drawablePadding="9dp"
+                    style="@style/TCNormalTS14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text='@{viewModel.mInfo.sex==1?@string/nv:@string/nan}'
+                    style="@style/TCNormalTS14"
+                    tools:text="员工姓名" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="员工电话"
+                    android:drawableLeft="@mipmap/yuangongdianhua"
+                    android:drawablePadding="9dp"
+                    style="@style/TCNormalTS14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="@{viewModel.mInfo.phone}"
+                    style="@style/TCNormalTS14"
+                    tools:text="员工姓名" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="员工工号"
+                    android:drawableLeft="@mipmap/yuangonggonghao"
+                    android:drawablePadding="9dp"
+                    style="@style/TCNormalTS14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="@{viewModel.mInfo.jobNumber}"
+                    style="@style/TCNormalTS14"
+                    tools:text="员工姓名" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="员工工种"
+                    android:drawablePadding="9dp"
+                    android:drawableLeft="@mipmap/yuangonggongzhong"
+                    style="@style/TCNormalTS14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="@{viewModel.mInfo.post}"
+                    style="@style/TCNormalTS14"
+                    tools:text="员工姓名" />
+            </RelativeLayout>
+
+            <!--<inclactivity_vice_chargeyouactivity_vice_chargeyout/line_h_normal" />-->
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

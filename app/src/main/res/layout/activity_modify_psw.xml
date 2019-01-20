@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.ModifyPswViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white" />
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginTop="@dimen/dp_28"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_modify_password_old"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:layout_marginRight="@dimen/dp_28"
+                >
+
+                <EditText
+                    android:id="@+id/old_psw_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28"
+                    android:drawableLeft="@mipmap/mima"
+                    android:drawablePadding="@dimen/dp_5"
+                    android:hint="旧密码"
+                    android:inputType="numberPassword"
+                    android:textSize="@dimen/sp_7"
+                    android:maxLines="1"
+                    android:text="@={viewModel.obOldPsw}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:layout_marginRight="@dimen/dp_28"
+                app:counterMaxLength="6">
+
+                <EditText
+                    android:id="@+id/new_psw_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28"
+                    android:hint="新密码"
+                    android:maxLines="1"
+                    android:textSize="@dimen/sp_7"
+                    android:inputType="numberPassword"
+                    android:drawableLeft="@mipmap/mima"
+                    android:drawablePadding="@dimen/dp_5"
+                    android:maxLength="6"
+                    android:text="@={viewModel.obNewPsw}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:layout_marginRight="@dimen/dp_28">
+
+                <EditText
+                    android:id="@+id/confirm_psw_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_28"
+                    android:hint="再次确认新密码"
+                    android:maxLines="1"
+                    android:textSize="@dimen/sp_7"
+                    android:drawableLeft="@mipmap/mima"
+                    android:drawablePadding="@dimen/dp_5"
+                    android:inputType="numberPassword"
+                    android:text="@={viewModel.obConfirmPsw}" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok_btn"
+            style="@style/ButtonNormalAlignBottomEnableFull"
+            android:onClick="@{viewModel.clickButton}"
+            android:text="提交" />
+
+    </RelativeLayout>
+</layout>

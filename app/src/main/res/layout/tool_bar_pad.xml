@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/back_iv"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:src="@drawable/selector_press_back_grey" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/text_title"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/blue_search_iv"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/lansefangdajing"
+        />
+
+    <EditText
+        android:id="@+id/et_tool_saomiaoqiang"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_toLeftOf="@+id/blue_search_iv"
+        android:layout_marginRight="20dp"
+        android:hint="扫描枪扫描"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@mipmap/saomiaoqi"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
+        android:inputType="number"
+        android:drawablePadding="5dp"
+        />
+    <ImageView
+        android:id="@+id/scan_iv"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/lansesaomiao"
+        android:layout_toLeftOf="@+id/et_tool_saomiaoqiang"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:id="@+id/search_view"
+        android:layout_width="150dp"
+        android:layout_height="28dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_search_input_dark_bg"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/fangdajing"
+            android:text=""
+            android:textColor="@color/text_dark"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:background="#bbbbbb" />
+
+        <EditText
+            android:id="@+id/input_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_dark"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/delete_text_iv"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/shanchuwenben" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/shape_iv"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/shape_tool_bar_line" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/shape_iv"
+        android:background="#CAC4C6" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/view1"
+        android:background="#BBBBBB" />
+
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="InventoryRecordDetailBinding">
+
+        <import type="ys.app.pad.utils.AppUtil"></import>
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.inventory.InventoryRecordDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@{String.valueOf(itemViewModel.model.commodityName)}"
+            android:textSize="@dimen/sp_7"
+            tools:text="狗粮A" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@{String.valueOf(itemViewModel.model.stockNum)}"
+            android:textSize="@dimen/sp_7"
+            tools:text="8" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@{String.valueOf(itemViewModel.model.inventoryNum)}"
+            android:textSize="@dimen/sp_7"
+            tools:text="8" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="@{AppUtil.formatStandardMoney(itemViewModel.model.inventoryNum-itemViewModel.model.stockNum)}"
+                android:textSize="@dimen/sp_7"
+                tools:text="-1" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ys.app.pad">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- nfc使用权限 -->
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.NFC" />
+
+    <application
+        android:name=".AppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/NoTitleAppTheme">
+        <activity
+            android:name=".activity.StartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/CustomAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+
+        </activity>
+        <!-- 登录 -->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.LoginActivity" />
+
+                <data android:scheme="login" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.CollectMoneyActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.CollectMoneyActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.manage.ManagerActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.ManagerActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.vip.VipActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.VipActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.vip.AddVipActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.vip.VipDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.vip.ChargeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.vip.PayActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.vip.PayResultActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.GoodsDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.CheckActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.AddInventoryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.TakeOutInventoryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ModifyActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.ModifyPswActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.CommitOrderActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ShoppingPayResultActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.VipCardActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.AddVipCardActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.AddAnimalActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.PayListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.EmployeePerformanceActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ServiceDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.EmployeeListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.AddEmployeeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.AchievementActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.AchievementActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.StatisticsActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.GoodsActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ServiceActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.AddGoodsActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.AddServiceActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.vip.VipRecordActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ModifyServiceDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.SaleActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.SaleActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.manage.ModifyBossPswActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ForgetPwdActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.TransactionDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.EmployeeDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.EditEmployeeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.manage.AboutUsActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+
+        </activity>
+        <activity
+            android:name=".activity.AllAchievementActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <service
+            android:name=".service.InitDataService"
+            android:enabled="true" />
+        <service
+            android:name=".service.BlueToothService"
+            android:enabled="true" />
+
+        <!-- ImagePicker 相关配置 -->
+        <activity
+            android:name=".widget.imagepicker.cropper.CropImageActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <provider
+            android:name=".provider.PetProvider"
+            android:authorities="ys.app.pad.provider.petProvider"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.inventory.InventoryRecordsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.inventory.InventoryRecordsDetailActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.appointment.AppointmentActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.AllStaffAchievementActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".animalkind.AminalKindActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.appointment.AppointmentMainActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="ys.app.pad.action.AppointmentMainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.appointment.AddAppointmentActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.manage.AllotListActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.manage.AllotRecordActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".nfc.MagneticCardActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.appointment.ServerAppointmentActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".pad_adapter.GoodLoadActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.PersonPayActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.inventory.OutPutInventoryActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.inventory.OutStorageDetailActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.RefundMoneyResultActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.manage.NumCardActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.vip.RefundVipActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.manage.NumCardDetailActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan" />
+
+        <receiver android:name=".shangmi.screen.receiver.MyBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.sunmi.hcservice" />
+                <action android:name="com.sunmi.hcservice.status" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="sunmi_dual"
+            android:value="open" />
+
+        <activity
+            android:name=".activity.SandQRCodeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ScannerGunPayCodeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.vice.ViceActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.vice.CommitOrderViceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.vice.ViceWelcomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.FosterCareActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.HairdressingActivity" />
+        <activity android:name=".shangmi.t1miniscan.ScanActivity" />
+        <activity
+            android:name=".nfc.NFCActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.manage.TicketManageActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.SystemSettingActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.manage.FunctionUpdateDetailActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".activity.manage.FunctionIntroductionListActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".activity.AchievementStatisticActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".activity.LivingBuyActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".activity.achievement.EmployeeAchievementsActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+    </application>
+
+</manifest>

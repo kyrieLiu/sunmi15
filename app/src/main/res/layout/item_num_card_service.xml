@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemNumCardBinding">
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_login_input"
+        android:layout_margin="@dimen/padding_or_margin"
+        android:padding="10dp"
+        android:layout_height="45dp">
+        <TextView
+            android:id="@+id/zhe_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/padding_or_margin"
+            android:layout_centerVertical="true"
+            android:text="次" />
+
+        <EditText
+            android:id="@+id/et_item_num_card_number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center|right"
+            android:layout_toLeftOf="@+id/zhe_tv"
+            android:layout_toRightOf="@+id/tv_item_maohao"
+            android:background="@null"
+            style="@style/TCBlueTS13"
+            android:maxLength="2"
+            android:minWidth="50dp"
+            android:inputType="number"
+            tools:text="98" />
+
+        <TextView
+            android:id="@+id/tv_item_num_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            style="@style/TCNormalTS13"
+            android:layout_alignParentLeft="true"
+            android:text="主粮系列 : " />
+        <TextView
+            android:id="@+id/tv_item_maohao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_item_num_card_name"
+            android:layout_marginLeft="@dimen/padding_or_margin"
+            android:layout_marginRight="@dimen/padding_or_margin"
+            style="@style/TCNormalTS13"
+            android:text="@string/maohao" />
+
+
+
+    </RelativeLayout>
+
+
+</layout>

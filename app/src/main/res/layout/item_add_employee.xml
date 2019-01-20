@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemAddEmployeeBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.manage.AddEmployeeItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_or_margin"
+        android:paddingRight="@dimen/padding_or_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text='@{@string/yuangong+itemViewModel.model.position}'
+            android:textColor="@color/blue"
+            tools:text="员工" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_grey_input"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@mipmap/yuangongxingming"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="员工姓名"
+                android:textColor="@color/text_normal"/>
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mh"
+                android:textColor="@color/text_normal" />
+
+            <ys.app.pad.widget.ContainsEmojiEditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="1"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入员工姓名"
+                android:textColor="@color/text_normal"
+                android:gravity="right|center"
+                android:text="@={itemViewModel.model.name}" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_grey_input"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv0"
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@mipmap/xingbie"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="员工姓别"
+                android:textColor="@color/text_normal" />
+
+            <TextView
+                android:id="@+id/tv1"
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv0"
+                android:text=" : "
+                android:textColor="@color/text_normal"/>
+
+            <ImageView
+                android:id="@+id/select_iv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:onClick="@{itemViewModel.clickGenderButton}"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/arrow_down"
+                android:textColor="@color/text_normal"/>
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/select_iv1"
+                android:layout_toRightOf="@+id/tv1"
+                android:background="@null"
+                android:hint="请选择性别"
+                android:textColor="@color/text_normal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="right|center"
+                android:onClick="@{itemViewModel.clickGenderButton}"
+                android:text="@={itemViewModel.gender}" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_grey_input"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@mipmap/yuangongdianhua"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="员工电话"
+                android:textColor="@color/text_normal" />
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mh"
+                android:textColor="@color/text_normal" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:hint="请输入电话"
+                android:textColor="@color/text_normal"
+                android:inputType="phone"
+                android:background="@null"
+                android:gravity="right|center"
+                android:text="@={itemViewModel.model.phone}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_grey_input"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@mipmap/yuangonggonghao"
+                android:gravity="center"
+                android:drawablePadding="10dp"
+                android:text="员工工号"
+                android:textColor="@color/text_normal" />
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mh"
+                android:textColor="@color/text_normal"/>
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxLines="1"
+                android:inputType="number"
+                android:gravity="right|center"
+                android:hint="请输入员工工号"
+                android:textColor="@color/text_normal"
+                android:text="@={itemViewModel.model.num}" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_grey_input"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@mipmap/yuangonggongzhong"
+                android:drawablePadding="10dp"
+                android:text="员工工种"
+                android:textColor="@color/text_normal"/>
+
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mh"
+                android:textColor="@color/text_normal"/>
+            <TextView
+                style="@style/TCdarkTS13"
+                android:layout_centerVertical="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="right|center"
+                android:hint="请选择工种"
+                android:textColor="@color/text_normal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@{itemViewModel.workType}"
+                android:onClick="@{() -> itemViewModel.selectTypeWork()}"
+                />
+            <ImageView
+                android:id="@+id/select_iv0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:scaleType="fitCenter"
+                android:onClick="@{() -> itemViewModel.selectTypeWork()}"
+                android:src="@mipmap/arrow_down"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

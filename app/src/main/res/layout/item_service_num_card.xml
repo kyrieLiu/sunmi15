@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/dp_1"
+    android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:clipChildren="true"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_14"
+                android:layout_marginLeft="@dimen/dp_2.5"
+                android:layout_marginRight="@dimen/dp_2.5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_item_service_num_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/text_dark"
+                    android:textSize="@dimen/sp_6"
+                    tools:text="商品名称" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll1"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_2.5"
+                android:layout_marginRight="@dimen/dp_2.5"
+                android:layout_marginTop="@dimen/dp_5">
+
+                <TextView
+                    android:id="@+id/danwei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_1"
+                    android:text="¥"
+                    android:textColor="@color/text_money"
+                    android:visibility="gone"
+                    android:textSize="@dimen/sp_6_5" />
+
+                <TextView
+                    android:id="@+id/jine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/danwei"
+                    android:layout_marginLeft="@dimen/dp_1"
+                    android:layout_toRightOf="@+id/danwei"
+                    android:textColor="@color/text_money"
+                    android:textSize="@dimen/sp_9"
+                    android:visibility="gone"
+                    tools:text="30.0" />
+
+                <TextView
+                    android:id="@+id/tv_item_service_num_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="套餐次数:2次"
+                    android:textSize="@dimen/sp_7"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+

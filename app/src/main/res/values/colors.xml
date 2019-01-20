@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_main">#0d76e5</color>
+    <color name="color_blue">#4998e7</color>
+
+    <color name="line_dark">#cccccc</color>
+    <color name="line_divide_normal">#e1e1e1</color>
+    <color name="bg">#f3f3f3</color>
+    <color name="input_grey">#C1C1C1</color>
+    <color name="text_money">#ff1700</color>
+    <color name="text_bg_light">#F2F2F2</color>
+
+    <color name="text_normal">#666666</color>
+    <color name="text_title">#484848</color>
+    <color name="text_dark">#484848</color>
+    <color name="text_hint">#BABABA</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="black">#222325</color>
+    <color name="text_light">#999999</color>
+    <color name="text_pink">#FFF2616E</color>
+    <color name="text_pink_dark">#FFA1313B</color>
+    <color name="text_tab_pink_select">#FFF2616E</color>
+    <color name="text_tab_pink_normal">#FF666666</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_yellow">#FFFF9800</color>
+    <color name="faint_yellow">#fad369</color>
+
+    <color name="text_yellow_dark">#FFA77E3E</color>
+    <color name="transparent_half">#2aFFFFFF</color>
+    <color name="text_green">#1ea603</color>
+
+    <color name="blue">#4998E7</color>
+    <color name="devide">#D9D9D9</color>
+    <color name="common_red">#F74E62</color>
+    <color name="text_black">#4D4D4D</color>
+    <color name="login_btn">#3889e6</color>
+
+    <color name="main_menu_red">#e55254</color>
+    <color name="recycler_bg">#232426</color>
+    <color name="order_bg">#33436f</color>
+    <color name="order_item_bg">#303f68</color>
+    <color name="text_main" >#7D828D</color>
+    <color name="transparent" >#00000000</color>
+
+</resources>

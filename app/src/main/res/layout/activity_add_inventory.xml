@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ActivityAddInventoryBinding">
+
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.AddInventoryViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/white"
+            />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view"
+            layout="@layout/tool_bar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar">
+
+            <LinearLayout
+                android:id="@+id/ll0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="@dimen/iv_tv_padding"
+                    android:visibility="gone"
+                    android:src="@mipmap/shangpinmingcheng" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品名称" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=": " />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.mResult.name}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll0"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="@dimen/iv_tv_padding"
+                    android:visibility="gone"
+                    android:src="@mipmap/lansesaomiao" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="条形码" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=": " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.mResult.barCode}" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="@dimen/iv_tv_padding"
+                    android:src="@mipmap/chukushuliang" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="入库数量" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=": " />
+
+                <EditText
+                    style="@style/TCdarkTS14"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:maxLength="@integer/num_limit"
+                    android:maxLines="1"
+                    android:hint="请输入入库数量"
+                    android:text="@={viewModel.obAddInventory}"
+                    app:onTextChangedListener="@{viewModel.textChangeListener}"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_login_input"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/ll5"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="@dimen/iv_tv_padding"
+                    android:src="@mipmap/kucunshuliang" />
+
+                <TextView
+                    style="@style/TCdarkTS13"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="生产日期" />
+
+                <TextView
+                    style="@style/TCdarkTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=": " />
+
+                <EditText
+                    style="@style/TCdarkTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:onClick="@{() -> viewModel.manufactureTimeClick()}"
+                    android:text="@={viewModel.obGoodsProductDate}" />
+
+            </LinearLayout>
+            <Button
+                style="@style/ButtonNormalAlignBottomEnableFull"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ll_6"
+                android:layout_alignParentBottom="false"
+                android:layout_margin="10dp"
+                android:enabled="@{viewModel.obButtonEnable}"
+                android:onClick="@{viewModel.clickButton}"
+                android:text="入库"
+                />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</layout>

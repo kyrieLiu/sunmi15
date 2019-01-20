@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "ys.app.pad"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 38
+        versionName "1.3.8"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            File strFile = new File("pad_pet.jks")
+            storeFile file(strFile)
+            storePassword "123456"
+            keyAlias "youshi"
+            keyPassword "123456"
+        }
+
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG", "false"
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG", "true"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+        }
+    }
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    /*针对greenDao的一些配置*/
+    greendao {
+        schemaVersion 4 //数据库版本号
+        daoPackage 'com.greendao' //自动生成的工具类的包名
+        targetGenDir 'src/main/java-gen' //路径
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java-gen', 'src/main/res/color']
+            res.srcDirs = ['src/main/res', 'src/main/res/color']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile files('libs/barlibrary-2.2.2.jar')
+    compile supportDependencies.supportV7
+    compile supportDependencies.design
+    compile retrofitDependencies.gson
+    compile retrofitDependencies.okhttp
+    compile retrofitDependencies.fastjson
+    compile rxDependencies.rxAndroid
+    compile retrofitDependencies.retrofit
+    compile retrofitDependencies.rxAdapterJava
+    compile retrofitDependencies.loging
+    compile rxDependencies.rxJava
+    compile glide
+    compile greendaoDependencies.greendao
+    compile greendaoDependencies.generator
+    compile bottomsheet
+    //数据库调试调试
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
+    implementation files('libs/ToolsFinal-1.1.5-release.jar')
+    implementation files('libs/core-3.3.0.jar')
+    compile 'com.sunmi:DS_Lib:1.0.9'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'me.biubiubiu.justifytext:library:1.1'
+    implementation files('libs/sunmiscan.jar')
+    compile 'com.github.promeg:tinypinyin:1.0.0'
+    compile files('libs/gprintersdkv1.jar')
+}

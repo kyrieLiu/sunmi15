@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="FragmentAchievementStaticBinding">
+
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.AchievementStaticFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isNoneDataVisible || viewModel.isNetWorkErrorVisible || viewModel.isLoadingVisible ? View.GONE:View.VISIBLE}"
+            >
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+
+                android:background="@color/white"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:layout_marginRight="@dimen/dp_40"
+                    app:tabIndicatorColor="@color/common_red"
+                    app:tabIndicatorHeight="1dp"
+                    app:tabSelectedTextColor="@color/common_red" />
+            </ScrollView>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/scrollView" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/noneDataIv"
+            style="@style/NoneDataIv"
+            android:src="@mipmap/none_data"
+            android:visibility="@{viewModel.isNoneDataVisible?View.VISIBLE:View.GONE}" />
+
+
+        <ImageView
+            android:id="@+id/networkErrorIv"
+            style="@style/NetworkErrorIv"
+            android:onClick="@{() ->viewModel.onClickNetWorkError()}"
+            android:src="@mipmap/network_error"
+            android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.isLoadingVisible?View.VISIBLE:View.GONE}">
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/RequestProgressStyle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

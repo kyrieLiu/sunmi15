@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="AchievementStatisticChildBinding">
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.achievement.AchieveStatisChildFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ys.app.pad.widget.refresh.NestedRefreshLayout
+            android:id="@+id/nestedRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:pullMaxHeight="80dp"
+            app:pullView="100"
+            app:pullViewHeight="50dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/bg">
+
+                    <LinearLayout
+                        android:id="@+id/date_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@mipmap/clock"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:maxLength="10"
+                            android:onClick="@{viewModel.clickBeginDate}"
+                            android:text="@{viewModel.obBeginDate}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:gravity="center_vertical"
+                            android:text="一" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@mipmap/clock"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:maxLength="10"
+                            android:onClick="@{viewModel.clickEndDate}"
+                            android:text="@{viewModel.obEndDate}" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+
+                    android:background="@color/white"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_50"
+                        android:text="系列"
+                        android:textColor="@color/color_main"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_50"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="业绩"
+                        android:textColor="@color/color_main"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/devide" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="@{(viewModel.isNoneDataVisible || viewModel.isNetWorkErrorVisible)  ? View.GONE:View.VISIBLE}" />
+
+                    <ImageView
+                        android:id="@+id/noneDataIv"
+                        style="@style/NoneDataIv"
+                        android:src="@mipmap/none_data"
+                        android:visibility="@{viewModel.isNoneDataVisible?View.VISIBLE:View.GONE}" />
+
+                    <ImageView
+                        android:id="@+id/networkErrorIv"
+                        style="@style/NetworkErrorIv"
+                        android:onClick="@{() ->viewModel.onClickNetWorkError()}"
+                        android:src="@mipmap/network_error"
+                        android:visibility="@{viewModel.isNetWorkErrorVisible?View.VISIBLE:View.GONE}" />
+                </FrameLayout>
+            </LinearLayout>
+        </ys.app.pad.widget.refresh.NestedRefreshLayout>
+
+    </RelativeLayout>
+
+</layout>

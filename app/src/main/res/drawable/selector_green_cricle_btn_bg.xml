@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:drawable="@drawable/home_green_btn_cricle_bg_normal"/>
+    <item android:state_pressed="true" android:drawable="@drawable/home_green_cricle_btn_bg_not_normal" />
+    <item android:drawable="@drawable/home_green_btn_cricle_bg_normal"/>
+</selector>

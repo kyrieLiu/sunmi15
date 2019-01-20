@@ -1,0 +1,108 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ys.app.pad.activity.SandQRCodeActivity">
+
+    <data class="SandPayCodeBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.SandPayCodeModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/et_auth_code"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:inputType="number"
+            android:focusable="true"
+            android:background="@null"
+            />
+        <include
+            android:id="@+id/view_tool_bar"
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view_tool_bar"
+
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="请扫描顾客收款码进行收款"
+                android:textColor="@color/text_money" />
+
+            <TextView
+                android:id="@+id/tv_personal_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <FrameLayout
+                    android:id="@+id/fl_scan_frame"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="80dp"
+                    android:padding="@dimen/dp_5"
+                    android:background="@mipmap/scan_background">
+
+                    <SurfaceView
+                        android:id="@+id/surface_view"
+                        android:background="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="@{viewModel.isT1miniShow?View.VISIBLE:View.GONE}"/>
+                    <ImageView
+                        android:id="@+id/iv_scan_needle"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_margin="15dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/scan_laser" />
+                </FrameLayout>
+                <ImageView
+                    android:id="@+id/iv_scan_example"
+                    android:layout_width="350dp"
+                    android:layout_height="450dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="@dimen/height_40"
+                    android:layout_toRightOf="@+id/fl_scan_frame"
+                    android:src="@mipmap/wechat_scan_sample"
+                   />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
+

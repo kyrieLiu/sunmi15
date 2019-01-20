@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemInventoryRecordBinding">
+
+        <import type="java.util.List" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <import type="ys.app.pad.utils.DateUtil" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="ys.app.pad.viewmodel.ItemInventoryRecordItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line_divide_normal" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/up_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:layout_marginLeft="@dimen/sp_5"
+                    android:layout_centerVertical="true"
+                    android:text="@{DateUtil.longFormatDate2(itemViewModel.model.dotime)}"
+                    android:textSize="@dimen/sp_7"
+                    tools:text="2017-06-08 22:30" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_panying"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/sp_7"
+                        android:text="@string/py"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:layout_toRightOf="@+id/tv_panying"
+                        android:textColor="@color/text_money"
+                        android:layout_marginLeft="@dimen/dp_2.5"
+                        android:text='@{AppUtil.formatStandardMoney(itemViewModel.model.inventoryProfit)+@string/yuan}'
+                        android:textSize="@dimen/sp_7"
+                        tools:text="盘盈450元" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_pankui"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/sp_7"
+                        android:text="@string/pk"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:layout_toRightOf="@+id/tv_pankui"
+                        android:textColor="@color/text_green"
+                        android:text='@{AppUtil.formatStandardMoney(itemViewModel.model.inventoryLosses)+@string/yuan}'
+                        android:layout_marginLeft="@dimen/dp_2.5"
+                        android:textSize="@dimen/sp_7"
+                        tools:text="盘亏142元" />
+
+                </RelativeLayout>
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/youjiantou_dark" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/up_rl"
+                android:orientation="vertical"
+                android:visibility="@{AppUtil.getListSizeIsEmpty(itemViewModel.listData)?View.GONE:View.VISIBLE}">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:background="@color/line_divide_normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_16"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/sp_7"
+                        android:text="名称" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/sp_7"
+                        android:text="单价" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/sp_7"
+                        android:text="盈亏" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:inventoryRecordsAdapterData="@{itemViewModel.listData}" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

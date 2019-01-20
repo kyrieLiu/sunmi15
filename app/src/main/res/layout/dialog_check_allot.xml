@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    >
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_165"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/ll_dialog_allot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/sp_5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_dialog_allot_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:text="商品名称:汪星球宠物"
+                    android:textSize="@dimen/sp_6_5"/>
+
+                <TextView
+                    android:id="@+id/tv_dialog_allot_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:text="商品类型:主粮系列"
+                    android:textSize="@dimen/sp_6_5"/>
+
+                <TextView
+                    android:id="@+id/tv_dialog_allot_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:text="数量:2"
+                    android:textSize="@dimen/sp_6_5"/>
+
+                <TextView
+                    android:id="@+id/tv_dialog_allot_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:text="日期:2017-0917"
+                    android:textSize="@dimen/sp_6_5" />
+
+                <LinearLayout
+                    android:id="@+id/ll_check_allot_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_16"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="审核人:"
+                        android:textSize="@dimen/sp_6_5"/>
+
+                    <TextView
+
+                        android:id="@+id/tv_dialog_allot_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="请选择员工"
+                        android:textSize="@dimen/sp_6_5" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll_dialog_allot"
+                android:layout_marginBottom="@dimen/sp_5"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/bt_dialog_allot_cancel"
+                    android:layout_width="50dp"
+                    android:layout_height="@dimen/dp_16"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/selector_blue_btn_bg"
+                    android:text="取消"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/bt_dialog_allot_confirm"
+                    android:layout_width="50dp"
+                    android:layout_height="@dimen/dp_16"
+                    android:background="@drawable/selector_blue_btn_bg"
+                    android:textSize="12sp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="20dp"
+                    android:text="确定" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+</LinearLayout>

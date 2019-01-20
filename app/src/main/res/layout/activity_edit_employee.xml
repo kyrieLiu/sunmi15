@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ActivityEditEmployeeBinding">
+
+        <import type="android.view.View" />
+
+        <import type="ys.app.pad.utils.AppUtil" />
+
+        <variable
+            name="viewModel"
+            type="ys.app.pad.viewmodel.manage.EditEmployeeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+
+        <include
+            layout="@layout/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar"
+            android:layout_marginLeft="@dimen/margin_200"
+            android:layout_marginRight="@dimen/margin_200"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@mipmap/yuangongxingming"
+                    android:drawablePadding="7dp"
+                    android:textColor="@color/text_normal"
+                    android:text="员工姓名" />
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mh"
+                    android:textColor="@color/text_normal"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/padding_or_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:paddingRight="@dimen/padding_or_margin"
+                    android:maxLines="1"
+                    android:hint="请输入员工姓名"
+                    android:textColor="@color/text_normal"
+                    android:text="@={viewModel.obName}" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv0"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@mipmap/xingbie"
+                    android:drawablePadding="7dp"
+                    android:text="员工姓别"
+                    android:textColor="@color/text_normal"/>
+
+                <TextView
+                    android:id="@+id/tv1"
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv0"
+                    android:text=": "
+                    android:textColor="@color/text_normal"/>
+
+                <ImageView
+                    android:id="@+id/select_iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:onClick="@{viewModel.clickGenderButton}"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/arrow_down" />
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/select_iv1"
+                    android:layout_toRightOf="@+id/tv1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请选择性别"
+                    android:paddingRight="@dimen/padding_or_margin"
+                    android:onClick="@{viewModel.clickGenderButton}"
+                    android:text="@={viewModel.obGender}"
+                    android:textColor="@color/text_normal"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:drawablePadding="7dp"
+                    android:drawableLeft="@mipmap/yuangongdianhua"
+                    android:text="员工电话"
+                    android:textColor="@color/text_normal"/>
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mh"
+                    android:textColor="@color/text_normal"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/padding_or_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:maxLines="1"
+                    android:hint="请输入员工电话"
+                    android:text="@={viewModel.obPhone}"
+                    android:id="@+id/editText3"
+                    style="@style/TCNormalTS13"
+                    android:paddingRight="@dimen/padding_or_margin"
+                    android:textColor="@color/text_normal"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@mipmap/yuangonggonghao"
+                    android:drawablePadding="7dp"
+                    android:text="员工工号"
+                    android:textColor="@color/text_normal"/>
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mh"
+                    android:textColor="@color/text_normal"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/padding_or_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:maxLines="1"
+                    style="@style/TCNormalTS13"
+                    android:hint="请输入员工工号"
+                    android:paddingRight="@dimen/padding_or_margin"
+                    android:text="@={viewModel.obNum}"
+                    android:id="@+id/editText4"
+                    android:textColor="@color/text_normal"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/padding_or_margin"
+                android:background="@drawable/shape_grey_input"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@mipmap/yuangonggongzhong"
+                    android:drawablePadding="7dp"
+                    android:text="员工工种"
+                    android:textColor="@color/text_normal"/>
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mh"
+                    android:textColor="@color/text_normal"/>
+
+                <TextView
+                    style="@style/TCNormalTS13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right|center"
+                    android:hint="请选择工种"
+                    android:paddingRight="@dimen/padding_or_margin"
+                    android:onClick="@{() -> viewModel.selectTypeWork()}"
+                    android:text="@={viewModel.obWorkType}"
+                    android:textColor="@color/text_normal"/>
+
+                <ImageView
+                    android:id="@+id/select_iv0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:onClick="@{() -> viewModel.selectTypeWork()}"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/arrow_down" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok_btn"
+            style="@style/ButtonNormalAlignBottomEnableFull"
+            android:onClick="@{viewModel.clickOkBtn}"
+            android:text="确定" />
+
+    </RelativeLayout>
+</layout>
