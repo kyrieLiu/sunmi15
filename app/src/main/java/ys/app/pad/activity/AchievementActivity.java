@@ -38,7 +38,7 @@ public class AchievementActivity extends BaseActivity {
         mViewModel.init();
         setBgWhiteStatusBar();
     }
-    //
+
 
     @Override
     protected void onDestroy() {
