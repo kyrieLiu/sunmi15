@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,6 +142,17 @@ public class AppointmentListModel extends BaseFragmentViewModel {
         params.put("headOfficeId", SpUtil.getHeadOfficeId() + "");
         params.put("branchId",SpUtil.getBranchId()+"");
         params.put("state",intentFrom+"");
+
+        String month=date.substring(0,2);
+        int selectMonth=Integer.parseInt(month);
+        Calendar mCalendar = Calendar.getInstance();
+        int currentMonth = mCalendar.get(Calendar.MONTH) + 1;
+        int currentYear = mCalendar.get(Calendar.YEAR);
+        if (currentMonth>selectMonth){
+            currentYear++;
+        }
+        String day=currentYear+"年"+date;
+
         params.put("bespeakDay",date);
         params.put("start",startHttp+"");
 
