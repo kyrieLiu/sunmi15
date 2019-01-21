@@ -413,10 +413,6 @@ public class CollectMoneyViewModel extends BaseActivityViewModel {
 
                 if (list != null && !list.isEmpty() && list.size() > position) {
                     GoodInfo goodInfo = list.get(position);
-                    if (goodInfo.getStockNum() <= 0) {
-                        showToast(mActivity, "库存为0,不能加入购物车");
-                        return;
-                    }
                     insertShopToCar(goodInfo);
                 }
 
@@ -578,7 +574,13 @@ public class CollectMoneyViewModel extends BaseActivityViewModel {
                 showToast(mActivity, "购物车含有次卡服务,不可加入商品");
                 return;
             }
+
             GoodInfo info = (GoodInfo) o;
+            if (info.getStockNum() <= 0) {
+                showToast(mActivity, "库存为0,不能加入购物车");
+                return;
+            }
+
             isPromotion = info.getIsPromotion();
             id = info.getId();
             price = info.getRealAmt();

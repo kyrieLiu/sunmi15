@@ -79,7 +79,7 @@ public class LoginViewModel extends BaseActivityViewModel {
             Class c = Class.forName("android.os.SystemProperties");
             Method get = c.getMethod("get", String.class);
             params.put("equipmentId", (String) get.invoke(c, "ro.serialno"));//设备序列号
-            //params.put("equipmentId", "TM18185N00154");
+            //params.put("equipmentId", "T109184Q00451");
         } catch (Exception e) {
             e.printStackTrace();
         }

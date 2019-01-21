@@ -8,8 +8,8 @@ android {
         applicationId "ys.app.pad"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 38
-        versionName "1.3.8"
+        versionCode 39
+        versionName "1.3.9"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
