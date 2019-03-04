@@ -1,7 +1,7 @@
 ext {
     //Version
-    designVersion = '24.1.1'
-    supportVersion = '24.1.1'
+    designVersion = '26.1.0'
+    supportVersion = '26.1.0'
     recyclerviewVersion = '+'
     fastJsonVersion = '1.1.33.android'
     okhttpVersion = '3.4.1'

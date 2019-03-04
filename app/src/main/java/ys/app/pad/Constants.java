@@ -13,7 +13,7 @@ public class Constants {
     //public static final String base_url = "http://192.168.10.74:8080/";//本地服务器
 
     public static final String base_sand_url = "https://pay.sandgate.cn/sandpay/api/";    //杉德正式环境
-//    public static final String base_sand_url = "https://scan.sandgate.cn:20042/sandpay/api/";       // 杉德测试环境
+    //public static final String base_sand_url = "https://scan.sandgate.cn:20042/sandpay/api/";       // 杉德测试环境
 
     public static final String base_img_url = "http://101.200.196.107:7080";
     public static final String intent_name = "intent_name";

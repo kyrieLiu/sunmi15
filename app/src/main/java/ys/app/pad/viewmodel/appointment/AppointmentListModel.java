@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,6 @@ import java.util.Map;
 import rx.functions.Action1;
 import ys.app.pad.BaseFragmentViewModel;
 import ys.app.pad.Constants;
-import ys.app.pad.utils.SpUtil;
 import ys.app.pad.activity.vip.VipDetailActivity;
 import ys.app.pad.adapter.appointment.AppointmentAdapter;
 import ys.app.pad.callback.OnItemClickListener;
@@ -26,6 +24,7 @@ import ys.app.pad.http.Callback;
 import ys.app.pad.itemmodel.AppointmentBean;
 import ys.app.pad.model.BaseListResult;
 import ys.app.pad.utils.NetWorkUtil;
+import ys.app.pad.utils.SpUtil;
 import ys.app.pad.widget.dialog.RequestDialog;
 import ys.app.pad.widget.wrapperRecylerView.IRecyclerView;
 import ys.app.pad.widget.wrapperRecylerView.LoadMoreFooterView;
@@ -143,15 +142,15 @@ public class AppointmentListModel extends BaseFragmentViewModel {
         params.put("branchId",SpUtil.getBranchId()+"");
         params.put("state",intentFrom+"");
 
-        String month=date.substring(0,2);
-        int selectMonth=Integer.parseInt(month);
-        Calendar mCalendar = Calendar.getInstance();
-        int currentMonth = mCalendar.get(Calendar.MONTH) + 1;
-        int currentYear = mCalendar.get(Calendar.YEAR);
-        if (currentMonth>selectMonth){
-            currentYear++;
-        }
-        String day=currentYear+"年"+date;
+//        String month=date.substring(0,2);
+//        int selectMonth=Integer.parseInt(month);
+//        Calendar mCalendar = Calendar.getInstance();
+//        int currentMonth = mCalendar.get(Calendar.MONTH) + 1;
+//        int currentYear = mCalendar.get(Calendar.YEAR);
+//        if (currentMonth>selectMonth){
+//            currentYear++;
+//        }
+//        String day=currentYear+"年"+date;
 
         params.put("bespeakDay",date);
         params.put("start",startHttp+"");
